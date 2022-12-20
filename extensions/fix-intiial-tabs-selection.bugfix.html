@@ -1,0 +1,25 @@
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const tabsId = window.location.hash.slice(1);
+    if (!tabsId) return;
+    // initially sync tabs header
+    document
+      .querySelectorAll('.grid-x.nav > .cell.auto > ul > li')
+      .forEach(
+        (_) =>
+          (_.className = _.children[0].href.endsWith(tabsId)
+            ? _.className + ' active'
+            : _.className.replaceAll('active', ''))
+      );
+    // initially sync tabs content
+    document
+      .querySelectorAll('[data-sport-filter]')
+      .forEach(
+        (_) =>
+          (_.className =
+            _.getAttribute('data-sport-filter') === tabsId
+              ? _.className + ' active'
+              : _.className.replaceAll('active', ''))
+      );
+  });
+</script>

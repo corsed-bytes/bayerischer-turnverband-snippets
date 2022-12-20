@@ -1,0 +1,13 @@
+<script>
+  // setup / hijack mail
+  window.addEventListener('DOMContentLoaded', () =>
+    document
+      .querySelectorAll('.icon.contact.main')
+      .forEach((_) =>
+        _.setAttribute(
+          'href',
+          'https://oberfranken.btv-turnen.de/coburg-frankenwald/kontakt'
+        )
+      )
+  );
+</script>
