@@ -1,0 +1,70 @@
+<div id="vorstand">
+  <div>
+    <input
+      placeholder="Suche"
+      type="text"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0.5rem;
+        border: none;
+        border-bottom: 3px solid #1d71b9;
+        outline: none;
+      "
+    />
+  </div>
+  <section
+    style="display: flex; flex-wrap: wrap; padding: 0.5rem; color: white"
+  ></section>
+</div>
+
+<script>
+  const data = [
+    {
+      name: 'David Renner',
+      title: 'Beauftragter Webmaster TG',
+      img: 'https://media-exp1.licdn.com/dms/image/C4D03AQGpxMuJZIgzkw/profile-displayphoto-shrink_800_800/0/1570116733938?e=2147483647&amp;v=beta&amp;t=0lMzJwOfao7zuxDAm1KW9PqVs0UB2N9iZ1-gHlzU6zc',
+      mail: 'david.renner@btv-turnen.de',
+    },
+    {
+      name: 'David Renner',
+      title: 'Beauftragter Webmaster TG',
+      img: 'https://media-exp1.licdn.com/dms/image/C4D03AQGpxMuJZIgzkw/profile-displayphoto-shrink_800_800/0/1570116733938?e=2147483647&amp;v=beta&amp;t=0lMzJwOfao7zuxDAm1KW9PqVs0UB2N9iZ1-gHlzU6zc',
+      mail: 'david.renner@btv-turnen.de',
+    },
+    {
+      name: 'David Renner',
+      title: 'Beauftragter Webmaster TG',
+      img: 'https://media-exp1.licdn.com/dms/image/C4D03AQGpxMuJZIgzkw/profile-displayphoto-shrink_800_800/0/1570116733938?e=2147483647&amp;v=beta&amp;t=0lMzJwOfao7zuxDAm1KW9PqVs0UB2N9iZ1-gHlzU6zc',
+      mail: 'david.renner@btv-turnen.de',
+    },
+  ];
+
+  document
+    .querySelector('#vorstand div input')
+    .addEventListener('keydown', (e) =>
+      formatter(data.filter((_) => JSON.stringify(_).includes(e.target.value)))
+    );
+
+  const formatter = (data) =>
+    (document.querySelector('#vorstand section').innerHTML =
+      data
+        .map(
+          (
+            _
+          ) => `<div style="position: relative; background:url(${_.img}) no-repeat center center; background-size:cover; flex:1 0 11%; height:250px; margin:0.5rem; min-width:250px; padding:0.5rem;">
+  <b style="background: #1D71B9; ">${_.name}</b><br />
+  <span style="background-color:#1d71b9">${_.title}</span> 
+  <a href="mailto:${_.mail}?subject=Anfrage - BTV-Webseite" style="background: #1D71B9; position: absolute; bottom: 0.5rem; right: 0.5rem; color: white; text-decoration: none; display: block-inline; padding: 0.5rem">${_.mail}</a>
+</div>`
+        )
+        .join('') +
+      ['', '', '', '', '']
+        .map(
+          () =>
+            '<div style="flex: 1 0 11%; margin: 0 0.5rem; padding: 0 0.5rem; min-width: 250px"></div>'
+        )
+        .join(''));
+
+  formatter(data);
+</script>
