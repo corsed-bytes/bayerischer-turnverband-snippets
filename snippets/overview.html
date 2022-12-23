@@ -1,0 +1,46 @@
+<div id="overview">
+  <div
+    class="content"
+    style="display: flex; flex-wrap: wrap; padding: 0.5rem; color: white"
+  >
+    Lade Inhalt...
+  </div>
+</div>
+
+<script>
+  // overview
+
+  const dataOverview = `
+Wir wünschen fröhliche Weihnachten und einen guten Rutsch	01.01.2023	David Renner	david.renner@btv-turnen.de	Hartmut Jahn	hartmut.jahn@btv-turnen.de
+`
+    .split('\n')
+    .filter((_) => !!_)
+    .map((_) => _.split('\t'))
+    .map(
+      ([
+        motd_text,
+        motd_eol,
+        contact_tech_name,
+        contact_tech_mail,
+        contact_orga_name,
+        contact_orga_mail,
+      ]) => ({
+        motd: { text: motd_text, eol: motd_eol },
+        contact_tech: { name: contact_tech_name, mail: contact_tech_mail },
+        contact_orga: { name: contact_orga_name, mail: contact_orga_mail },
+      })
+    );
+
+  const formatterOverview = (dataOverview) => {
+    document.querySelector('#overview div.content').innerHTML = dataOverview
+      .map(
+        (_) =>
+          `<div style="position: relative; flex:1 0 26%; margin:0rem; min-width:300px; padding:0rem;">${_.motd.text}</div>`
+      )
+      .join('');
+  };
+
+  setTimeout(() => {
+    formatterOverview(dataOverview);
+  }, 1000);
+</script>

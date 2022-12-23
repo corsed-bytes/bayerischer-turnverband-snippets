@@ -1,0 +1,96 @@
+<div id="vorstand">
+  <div class="control">Lade Inhalt...</div>
+  <div
+    class="content"
+    style="display: flex; flex-wrap: wrap; padding: 0.5rem; color: white"
+  >
+    Lade Inhalt...
+  </div>
+</div>
+
+<script>
+  // user-gallery
+
+  const dataUsers = `
+Hartmut Jahn	Gauvorsitzender			hartmut.jahn@btv-turnen.de	https://www.btv-turnen.de/der-btv/praesidium/image-thumb__57__content_default/hartmut-jahn~-~media--d092565a--query.jpg
+Nikolei Hiesl	Gaufachwart Musik und Spielmannswesen			nikolai.hiesl@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3403__content_default/account~-~media--d092565a--query.png
+Sylvia Weitl	Beauftragte im TG für Kampfrichterwesen Gerätturnen weiblich			sylvia.weitl@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3403__content_default/account~-~media--d092565a--query.png
+Steffen Reuß	Stellv. Gauvorsitzender Bildungsmaßnahmen			steffen.reuss@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3403__content_default/account~-~media--d092565a--query.png
+Ernst Weitl	Gaufachwart Gerätturnen weiblich			ernst.weitl@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3403__content_default/account~-~media--d092565a--query.png
+Johanna Knauer	Gaufachwartin Orientierungslauf			johanna.knauer@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3403__content_default/account~-~media--d092565a--query.png
+Kerstin Hertel	Buchhaltung Gliederungen			kerstin.hertel@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3403__content_default/account~-~media--d092565a--query.png
+Astrid Hess				astrid.hess@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3403__content_default/account~-~media--d092565a--query.png
+Michael Lindner	Webmaster			michael.lindner@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3403__content_default/account~-~media--d092565a--query.png
+Christine Busch	Gaufachwart Gesundheits- und Präventionssport			christine.busch@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3403__content_default/account~-~media--d092565a--query.png
+Beatrix Hess	Verantwortliche Turn10®			beatrix.hess@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3403__content_default/account~-~media--d092565a--query.png
+Carola Fricke	FG Kinderturnen			carola.fricke@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3403__content_default/account~-~media--d092565a--query.png
+David Renner	Gaufachwart Sportakrobatik	Webmaster		david.renner@btv-turnen.de	https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/vorstand/image-thumb__3402__content_default/1570116733938%20%281%29~-~media--d092565a--query.jpg
+`
+    .split('\n')
+    .filter((_) => !!_)
+    .map((_) => _.split('\t'))
+    .map(([name, title1, title2, title3, mail, img]) => ({
+      name,
+      title: [title1, title2, title3],
+      mail,
+      img,
+    }));
+
+  const formatterUsers = (dataUsers) => {
+    document.querySelector('#vorstand div.content').innerHTML =
+      dataUsers
+        .map(
+          (_) =>
+            `<div style="position: relative; background:url(${
+              _.img
+            }) no-repeat top center; background-size:cover; flex:1 0 11%; height:250px; margin:0.5rem; min-width:350px; padding:0.5rem;">
+  <b style="background: #1D71B9; padding: 0.1rem; display: inline-block; margin: 0 0.0 0.2rem 0;">${
+    _.name
+  }</b><br />
+  ${_.title
+    .filter((_) => !!_)
+    .map(
+      (_) =>
+        `<span style="background-color:#1d71b9; padding: 0.1rem; display: inline-block; margin: 0 0.2rem 0.2rem 0;">${_}</span>`
+    )
+    .join('')} 
+  <a href="mailto:${
+    _.mail
+  }?subject=Anfrage - BTV-Webseite" style="background: #1D71B9; position: absolute; bottom: 0.5rem; right: 0.5rem; color: white; text-decoration: none; display: block-inline; padding: 0.5rem">${
+              _.mail
+            }</a>
+</div>`
+        )
+        .join('') +
+      ['', '', '', '', '']
+        .map(
+          () =>
+            '<div style="flex: 1 0 11%; margin: 0 0.5rem; padding: 0 0.5rem; min-width: 250px"></div>'
+        )
+        .join('');
+  };
+
+  setTimeout(() => {
+    document.querySelector('#vorstand div.control').innerHTML = `<input
+      placeholder="Suche"
+      type="text"
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0.5rem;
+        border: none;
+        border-bottom: 3px solid #1d71b9;
+        outline: none;
+        width: auto;
+      "
+    />`;
+    document
+      .querySelector('#vorstand div.control input')
+      .addEventListener('keydown', (e) =>
+        formatterUsers(
+          dataUsers.filter((_) => JSON.stringify(_).includes(e.target.value))
+        )
+      );
+    formatterUsers(dataUsers);
+  }, 1000);
+</script>
