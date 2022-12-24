@@ -1,0 +1,19 @@
+<div class="turnObject">
+  <a
+    href="https://www.btv-turnen.de/sport/regionen_hier_nicht/oberfranken/coburg-frankenwald/turngau-100jahre-flyer.pdf"
+    >Flyer laden</a
+  >
+</div>
+
+<script>
+  // turn object
+
+  document.querySelectorAll('.turnObject').forEach(
+    (_) =>
+      (_.innerHTML = `<object data="${
+        _.querySelector('a').href
+      }" style="width:100%;height:600px">
+  <a href="${_.querySelector('a').href}">Flyer laden</a>
+  </object>`)
+  );
+</script>

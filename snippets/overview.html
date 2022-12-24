@@ -59,7 +59,7 @@
     }
     ${
       _.contact_orga
-        ? `<button style="flex:1 0 26%; min-width:150px; background: #1d71b9; color: white; margin: 0.5rem; padding: 0.5rem;">Organisatorischer Kontakt <br /><span style="font-size: 2rem">${_.contact_orga.name}</span></button>`
+        ? `<button id="contact_orga" style="flex:1 0 26%; min-width:150px; background: #1d71b9; color: white; margin: 0.5rem; padding: 0.5rem;">Organisatorischer Kontakt <br /><span style="font-size: 2rem">${_.contact_orga.name}</span></button>`
         : ``
     }  
   </div>`
@@ -75,11 +75,11 @@
       .join('');
     document.querySelector('#contact_tech') &&
       document.querySelector('#contact_tech').addEventListener('click', () => {
-        document.querySelector('#addPopup').style.display = 'block';
+        document.querySelector('#addPopup').style.display = 'flex';
       });
     document.querySelector('#contact_orga') &&
       document.querySelector('#contact_orga').addEventListener('click', () => {
-        document.querySelector('#addPopup').style.display = 'block';
+        document.querySelector('#addPopup').style.display = 'flex';
       });
   };
 
