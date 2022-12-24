@@ -1,17 +1,14 @@
 <div id="overview">
-  <div
-    class="content"
-    style="display: flex; flex-wrap: wrap; padding: 0.5rem; color: white"
-  >
+  <div class="content" style="display: flex; flex-wrap: wrap; padding: 0.5rem">
     Lade Inhalt...
   </div>
 </div>
 
 <script>
-  // overview
+  // overview (requires turn-contact-form-in-popup.hack)
 
   const dataOverview = `
-Wir wünschen fröhliche Weihnachten und einen guten Rutsch	01.01.2023	David Renner	david.renner@btv-turnen.de	Hartmut Jahn	hartmut.jahn@btv-turnen.de
+  Wir wünschen fröhliche Weihnachten und einen guten Rutsch	01.01.2023	David Renner	david.renner@btv-turnen.de	Hartmut Jahn	hartmut.jahn@btv-turnen.de	48	9983
 `
     .split('\n')
     .filter((_) => !!_)
@@ -24,10 +21,21 @@ Wir wünschen fröhliche Weihnachten und einen guten Rutsch	01.01.2023	David Ren
         contact_tech_mail,
         contact_orga_name,
         contact_orga_mail,
+        clubs_count,
+        clubs_members,
       ]) => ({
-        motd: { text: motd_text, eol: motd_eol },
-        contact_tech: { name: contact_tech_name, mail: contact_tech_mail },
-        contact_orga: { name: contact_orga_name, mail: contact_orga_mail },
+        motd: { text: motd_text, eol: new Date(motd_eol) },
+        contact_tech: contact_tech_name &&
+          contact_tech_mail && {
+            name: contact_tech_name,
+            mail: contact_tech_mail,
+          },
+        contact_orga: contact_orga_name &&
+          contact_orga_mail && {
+            name: contact_orga_name,
+            mail: contact_orga_mail,
+          },
+        clubs: { count: clubs_count, members: clubs_members },
       })
     );
 
@@ -35,9 +43,44 @@ Wir wünschen fröhliche Weihnachten und einen guten Rutsch	01.01.2023	David Ren
     document.querySelector('#overview div.content').innerHTML = dataOverview
       .map(
         (_) =>
-          `<div style="position: relative; flex:1 0 26%; margin:0rem; min-width:300px; padding:0rem;">${_.motd.text}</div>`
+          `
+  ${
+    new Date() < _.motd.eol
+      ? `<div style="flex:1 0 34%; min-width:200px; border: 1px solid #1d71b9; font-size: 2rem; margin: 0.5rem; padding: 0.5rem;">${_.motd.text}</div>`
+      : ``
+  }
+  ${
+    _.contact_tech || _.contact_orga
+      ? `<div style="flex:1 0 34%; min-width:600px;font-size: 2rem; display: flex;">
+    ${
+      _.contact_tech
+        ? `<button id="contact_tech" style="flex:1 0 26%; min-width:150px; background: #1d71b9; color: white; margin: 0.5rem; padding: 0.5rem;">Technischer Kontakt<br /><span style="font-size: 2rem">${_.contact_tech.name}</span></button>`
+        : ``
+    }
+    ${
+      _.contact_orga
+        ? `<button style="flex:1 0 26%; min-width:150px; background: #1d71b9; color: white; margin: 0.5rem; padding: 0.5rem;">Organisatorischer Kontakt <br /><span style="font-size: 2rem">${_.contact_orga.name}</span></button>`
+        : ``
+    }  
+  </div>`
+      : ``
+  }
+  ${
+    true
+      ? `<div style="flex:1 0 26%; min-width:200px; border: 1px solid #1d71b9; margin: 0.5rem; padding: 0.5rem;">Vereine / Mitglieder der Vereine <br /><span style="font-size: 2rem">${_.clubs.count} / ${_.clubs.members}</span></div>`
+      : ``
+  }
+  `
       )
       .join('');
+    document.querySelector('#contact_tech') &&
+      document.querySelector('#contact_tech').addEventListener('click', () => {
+        document.querySelector('#addPopup').style.display = 'block';
+      });
+    document.querySelector('#contact_orga') &&
+      document.querySelector('#contact_orga').addEventListener('click', () => {
+        document.querySelector('#addPopup').style.display = 'block';
+      });
   };
 
   setTimeout(() => {

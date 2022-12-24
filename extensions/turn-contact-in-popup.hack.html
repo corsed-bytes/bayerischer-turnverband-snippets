@@ -1,0 +1,38 @@
+<div class="brick_contact cell">
+  <form>Test</form>
+</div>
+<button class="showMailPopup">show</button>
+<script>
+  // demopart
+  document
+    .querySelector('.showMailPopup')
+    .addEventListener(
+      'click',
+      () => (document.querySelector('#addPopup').style.display = 'flex')
+    );
+</script>
+
+<script>
+  // setup / turn contact form in popup
+
+  const template = document.createElement('template');
+  template.innerHTML =
+    "<div id='addPopup' style='position: fixed; z-index: 3; top: 0; left: 0; width: 100%; height: 100%; background: rgba(100, 100, 100, 0.5); display: none; align-items: center; justify-content:center'><div style='width: 60vw; height: 400px; background: white; border: 1px solid #1d71b9; padding: 1rem; overflow: auto;' class='content'><button class='hideMailPopup' style='float: right'>X</button><h3 style='margin: 0'>Kontaktformular</h3></div></div>";
+  document.querySelector('body').appendChild(template.content.firstChild);
+  document
+    .querySelector('.hideMailPopup')
+    .addEventListener(
+      'click',
+      () => (document.querySelector('#addPopup').style.display = 'none')
+    );
+
+  setTimeout(() => {
+    document
+      .querySelector('#addPopup > .content')
+      .appendChild(
+        document
+          .querySelector('.brick_contact.cell')
+          .removeChild(document.querySelector('.brick_contact.cell > form'))
+      );
+  }, 100);
+</script>
