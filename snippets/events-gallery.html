@@ -1,4 +1,15 @@
-<div class="output"></div>
+<div id="news">
+  <div
+    class="control"
+    style="display: flex; align-items: center; justify-content: space-between"
+  ></div>
+  <div
+    class="content"
+    style="display: flex; flex-direction: column; padding: 0.5rem"
+  >
+    Lade Inhalt...
+  </div>
+</div>
 
 <script>
   const test = `    <header>
@@ -544,41 +555,163 @@
         </nav>
     </aside>`;
 
-  const temp = document.createElement('div');
-  temp.innerHTML = test
-    .split('<article class="brick_event list cell">')[1]
-    .split('</article>')[0];
-  console.log(
-    [...temp.querySelectorAll('.cell')].map((_) => ({
-      place: (_.querySelector('div.place') || { innerText: '' }).innerText,
-      category: (_.querySelector('div.category') || { innerText: '' })
-        .innerText,
-      title: (_.querySelector('h2.h4') || { innerText: '' }).innerText,
-      from: new Date(
-        2022,
-        (_.querySelector('.from.date > h2') || { innerText: '' }).innerText +
-          ' ' +
-          (_.querySelector('.from.date > .day') || { innerText: '' }).innerText
-      ),
-      to: new Date(
-        (_.querySelector('.to.date > h2') || { innerText: '' }).innerText +
-          ' ' +
-          (_.querySelector('.to.date > .day') || { innerText: '' }).innerText
-      ),
-    }))
-  );
+  // news-gallery
+  const months = {
+    Dez: 0,
+    Jan: 1,
+    Feb: 2,
+    Mär: 3,
+    Apr: 4,
+    Mai: 5,
+    Jun: 6,
+    Jul: 7,
+    Aug: 8,
+    Sep: 9,
+    Okt: 10,
+    Nov: 11,
+  };
+  const revMonths = Object.entries(months).reduce((st, [k, v]) => {
+    st[v] = k;
+    return st;
+  }, {});
+  const days = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+  let dataNews = [];
+  const loadNewsChunk = (page, test) =>
+    (!!test
+      ? Promise.resolve(test)
+      : fetch(`${window.location.origin}/events?page=${page}`).then((_) =>
+          _.text()
+        )
+    )
+      .then((_) => {
+        const temp = document.createElement('div');
+        temp.innerHTML = _.split(
+          '<article class="brick_event list cell">'
+        )[1].split('</article>')[0];
+        return temp;
+      })
+      .then((_) =>
+        [..._.querySelectorAll('[class="cell"]')]
+          .map((_) => ({
+            place: (_.querySelector('div.place') || { innerText: '' })
+              .innerText,
+            category: (_.querySelector('div.category') || { innerText: '' })
+              .innerText,
+            title: (
+              _.querySelector('h2.h4') || { innerText: '' }
+            ).innerText.trim(),
+            img: (_.querySelector('img') || { src: '' }).src.trim(),
+            link: (_.querySelector('a') || { href: '' }).href.trim(),
+            from: new Date(
+              2022,
+              months[
+                (
+                  _.querySelector('.from.date > .day') || { innerText: '' }
+                ).innerText
+              ],
+              (
+                _.querySelector('.from.date > h2') || { innerText: '' }
+              ).innerText
+            ),
+            to: _.querySelector('.to.date > .day')
+              ? new Date(
+                  2022,
+                  months[_.querySelector('.to.date > .day').innerText],
+                  _.querySelector('.to.date > h2').innerText
+                )
+              : undefined,
+          }))
+          .filter((_) => !!_.title)
+          .filter((_) => (_.to && new Date() < _.to) || new Date() < _.from)
+      )
+      .then((next) =>
+        next.length && !test
+          ? loadNewsChunk(page + 1, '').then((_) => [...next, ..._])
+          : next
+      );
+  loadNewsChunk(1, test).then((dataNews) => formatterNews(dataNews));
 
-  /*
- <div class="from date">
-                                                <div class="dayname">So</div>
-                                                <h2>20</h2>
-                                                <div class="day">Feb</div>
-                                            </div>
-                                                                                            <div class="to date">
-                                                    <div class="dayname">So</div>
-                                                    <h2>20</h2>
-                                                    <div class="day">Mär</div>
-                                                </div>
-*/
-  document.querySelector('.output').innerHTML = temp.innerHTML;
+  const formatterNews = (dataNews) => {
+    document.querySelector('#news div.content').innerHTML =
+      dataNews
+        .map(
+          (_) =>
+            `<a href="${
+              _.link
+            }" style="margin:0rem; padding:0.5rem; display: flex; border-bottom: 1px solid lightgray;">
+            <div style="width: 125px; display: flex; align-items: center">
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <span>
+                  ${days[_.from.getDay()]}
+                </span>
+                <span style="font-size: 2rem; font-weight: bold;">
+                  ${('00' + _.from.getDate()).slice(-2)} 
+                </span>
+                <span>
+                  ${revMonths[_.from.getMonth()]} 
+                </span>
+              </div>
+            ${
+              !!_.to
+                ? `
+                <span style="font-size: 2rem; font-weight: bold; padding: 0.5rem;">-</span>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                  <span>
+                    ${days[_.to.getDay()]}
+                  </span>
+                  <span style="font-size: 2rem; font-weight: bold;">
+                    ${('00' + _.to.getDate()).slice(-2)} 
+                  </span>
+                  <span>
+                    ${revMonths[_.to.getMonth()]} 
+                  </span>
+                </div>`
+                : ''
+            }
+            </div>
+            ${
+              _.img
+                ? `<img style="width: 100px;" src="${_.img}" />`
+                : `<div style="width: 100px;"></div>`
+            }
+            <div>
+            ${_.place ? _.place : 'Kein Ort'} | ${_.category ? _.category : ''} 
+            <br />
+            ${_.title}
+            </div>
+          </a>`
+        )
+        .join('') +
+      ['', '', '', '', '']
+        .map(
+          () =>
+            '<div style="flex: 1 0 11%; margin: 0; padding: 0; min-width: 300px"></div>'
+        )
+        .join('');
+  };
+
+  setTimeout(() => {
+    /*    document.querySelector(
+      '#news div.control'
+    ).innerHTML = `<span>Stand: ${stand}</span><input
+    placeholder="Suche"
+    type="text"
+    style="
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0.5rem;
+      border: none;
+      border-bottom: 3px solid #1d71b9;
+      outline: none;
+      width: auto;
+    "
+  />`;*/
+    /*    document
+      .querySelector('#news div.control input')
+      .addEventListener('keydown', (e) =>
+        formatterNews(
+          dataNews.filter((_) => JSON.stringify(_).includes(e.target.value))
+        )
+      );*/
+  }, 100);
 </script>
