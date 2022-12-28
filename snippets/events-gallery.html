@@ -556,20 +556,20 @@
     </aside>`;
 
   // news-gallery
-  const months = {
-    Dez: 0,
-    Jan: 1,
-    Feb: 2,
-    Mär: 3,
-    Apr: 4,
-    Mai: 5,
-    Jun: 6,
-    Jul: 7,
-    Aug: 8,
-    Sep: 9,
-    Okt: 10,
-    Nov: 11,
-  };
+  const months = JSON.parse(`{
+    'Jan': 0,
+    'Feb': 1,
+    'Mär': 2,
+    'Apr': 3,
+    'Mai': 4,
+    'Jun': 5,
+    'Jul': 6,
+    'Aug': 7,
+    'Sep': 8,
+    'Okt': 9,
+    'Nov': 10,
+    'Dez': 11
+  }`);
   const revMonths = Object.entries(months).reduce((st, [k, v]) => {
     st[v] = k;
     return st;
@@ -587,7 +587,8 @@
         )[1].split('</article>')[0];
         const [from, to] = temp
           .querySelector('div.h6')
-          .innerText.split('-')
+          .innerText.split(',')[0]
+          .split('-')
           .map((_) => _.trim().split('.').reverse());
         return {
           from: new Date(from),
@@ -625,17 +626,11 @@
     loadNewsList(page, test)
       .then((_) =>
         Promise.all(
-          _.map((_) =>
-            loadNewsItem(_.link)
-              .then((item) => ({ ..._, ...item }))
-              .then((_) => {
-                formatterNews(_, true);
-                return _;
-              })
-          )
+          _.map((_) => loadNewsItem(_.link).then((item) => ({ ..._, ...item })))
         )
       )
       .then((_) => {
+        formatterNews(_, true);
         console.log(_);
         return _;
       })
@@ -646,8 +641,8 @@
       );
   loadNewsChunk(1, test)
     .then((_) =>
-        _.filter((_) => (_.to && new Date() < _.to) || new Date() < _.from)
-      )
+      _.filter((_) => (_.to && new Date() < _.to) || new Date() < _.from)
+    )
     .then((dataNews) => formatterNews(dataNews));
 
   const formatterNews = (dataNews, loading) => {
