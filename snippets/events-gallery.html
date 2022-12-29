@@ -12,563 +12,22 @@
 </div>
 
 <script>
-  const test = `    <header>
-        <div class="grid-container">
-            <div class="grid-x grid-margin-x">
-                <div class="cell medium-6 large-4">
-                    <a href="/" class="logo">
-                                                    <picture >
-	<source srcset="/sport/regionen_hier_nicht/oberfranken/logo-btv-tbz-oberfranken.svg 1x" media="(min-width: 576px)" type="image/svg+xml" />
-	<source srcset="/sport/regionen_hier_nicht/oberfranken/logo-btv-tbz-oberfranken.svg 1x" type="image/svg+xml" />
-	<img src="/sport/regionen_hier_nicht/oberfranken/logo-btv-tbz-oberfranken.svg" width="168" height="60" alt="" loading="lazy" />
-</picture>
-
-                                            </a>
-                </div>
-                <div class="cell medium-6 large-8">
-                    <div class="navToggle"></div>
-                    <nav>
-                        <ul>
-                                                                                                <li class=" ">
-                                        <a target="" class=" main" href="/oberfranken">
-                                            Der Turnbezirk
-                                        </a>
-                                    </li>
-                                                                                                                                <li class=" ">
-                                        <a target="" class=" main" href="/bildung">
-                                            Bildung
-                                        </a>
-                                    </li>
-                                                                                                                                <li class=" ">
-                                        <a target="" class=" main" href="/sport">
-                                            Sport
-                                        </a>
-                                    </li>
-                                                                                                                                <li class=" ">
-                                        <a target="" class=" main" href="/vereinsservice">
-                                            Vereinsservice
-                                        </a>
-                                    </li>
-                                                                                                                                <li class=" ">
-                                        <a target="" class=" main" href="https://www.btv-turnen.de/">
-                                            Zum BTV
-                                        </a>
-                                    </li>
-                                                                                                                                <li class=" icon">
-                                        <a target="" class="icon search main" href="/suche">
-                                            Suche
-                                        </a>
-                                    </li>
-                                                                                                                                                                                                            </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-
-
-        
-        <main class="main">
-                <div class="grid-container">
-        <div class="grid-x">
-            <article class="brick_copy cell">
-                <h1>Alle Events im Überblick</h1>
-            </article>
-
-            <article class="filter cell">
-                <form>
-                    <div class="grid-x">
-                        <div class="cell small-6 medium-4 large-2">
-                            <select name="archive">
-                                <option value="1" selected>Aktuelles</option>
-                                <option value="0" >Archiv</option>
-                            </select>
-                        </div>
-                        <div class="cell small-6 medium-4 large-2">
-                            <select name="sport">
-                                <option value="" selected>alle Sportarten</option>
-                                                                    <option value="262" >4XF</option>
-                                                                    <option value="45" >Aerobicturnen</option>
-                                                                    <option value="37" >Aus- und Fortbildung</option>
-                                                                    <option value="261" >Fitness &amp; Aerobic</option>
-                                                                    <option value="40" >Fitness, Aerobic &amp; Trends</option>
-                                                                    <option value="46" >Gerätturnen</option>
-                                                                    <option value="172" >Gerätturnen männlich olympisch</option>
-                                                                    <option value="47" >Gerätturnen olympisch</option>
-                                                                    <option value="171" >Gerätturnen weiblich olympisch</option>
-                                                                    <option value="42" >Gesundheits- und Präventionssport</option>
-                                                                    <option value="27" >Gymnastik &amp; Tanz</option>
-                                                                    <option value="38" >Gymwelt</option>
-                                                                    <option value="58" >Kinderturnen</option>
-                                                                    <option value="57" >Musik und Spielmannswesen</option>
-                                                                    <option value="43" >Natur- und Outdoorsport</option>
-                                                                    <option value="48" >Orientierungslauf</option>
-                                                                    <option value="49" >Parkour</option>
-                                                                    <option value="50" >Rhönradturnen</option>
-                                                                    <option value="51" >Rhythmische Sportgymnastik</option>
-                                                                    <option value="73" >Rope Skipping</option>
-                                                                    <option value="41" >Seniorensport</option>
-                                                                    <option value="39" >Show &amp; Vorführung</option>
-                                                                    <option value="52" >Sportakrobatik</option>
-                                                                    <option value="53" >TeamGym</option>
-                                                                    <option value="54" >Trampolinturnen</option>
-                                                                    <option value="55" >Turnerische Mehrkämpfe</option>
-                                                                    <option value="56" >Turnerjugendwettkämpfe</option>
-                                                                    <option value="44" >Wettkampfsport</option>
-                                                            </select>
-                        </div>
-                        <div class="cell small-6 medium-4 large-2">
-                            <select name="regio">
-                                <option value="" selected>alle Regionen</option>
-                                                                    <option value="82" >Allgäu</option>
-                                                                    <option value="1402" >Amper-Würm</option>
-                                                                    <option value="1341" >Ansbach</option>
-                                                                    <option value="87" >Augsburg</option>
-                                                                    <option value="1311" >Bayreuth-Kulmbach</option>
-                                                                    <option value="1273" >Coburg-Frankenwald</option>
-                                                                    <option value="1403" >Donau-Ilm</option>
-                                                                    <option value="1270" >Donau-Wald</option>
-                                                                    <option value="1312" >Fichtelgebirge-Nordoberfranken</option>
-                                                                    <option value="84" >Iller-Donau</option>
-                                                                    <option value="1405" >Inn-Chiem-Rupertigau</option>
-                                                                    <option value="1268" >Landshut</option>
-                                                                    <option value="1313" >Main-Spessart</option>
-                                                                    <option value="63" >Mittelfranken</option>
-                                                                    <option value="1342" >Mittelfranken Süd</option>
-                                                                    <option value="1404" >München</option>
-                                                                    <option value="28" >Niederbayern</option>
-                                                                    <option value="1343" >Nürnberg, Fürth, Erlangen, </option>
-                                                                    <option value="61" >Oberbayern</option>
-                                                                    <option value="83" >Oberdonau</option>
-                                                                    <option value="62" >Oberfranken</option>
-                                                                    <option value="1406" >Oberland</option>
-                                                                    <option value="65" >Oberpfalz</option>
-                                                                    <option value="1317" >Oberpfalz-Nord</option>
-                                                                    <option value="1318" >Oberpfalz-Süd</option>
-                                                                    <option value="1314" >Rhön-Saale</option>
-                                                                    <option value="66" >Schwaben</option>
-                                                                    <option value="1315" >Schweinfurt-Haßberge</option>
-                                                                    <option value="1274" >Südoberfranken</option>
-                                                                    <option value="1269" >Unterdonau</option>
-                                                                    <option value="64" >Unterfranken</option>
-                                                                    <option value="1407" >Wendelstein</option>
-                                                                    <option value="1316" >Würzburg</option>
-                                                            </select>
-                        </div>
-                        <div class="cell shrink">
-                            <button type="submit">
-                                Filter anwenden
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </article>
-
-            <article class="brick_event list cell">
-                <div class="grid-x grid-margin-x">
-                                            <div class="cell">
-                            <a class="item" href="/events/2022bmrsg">
-                                <div class="grid-x grid-margin-x">
-                                                                        <div class="cell small-8 large-3">
-                                        <div class="dates">
-                                            <div class="from date">
-                                                <div class="dayname">So</div>
-                                                <h2>20</h2>
-                                                <div class="day">Feb</div>
-                                            </div>
-                                                                                            <div class="to date">
-                                                    <div class="dayname">So</div>
-                                                    <h2>20</h2>
-                                                    <div class="day">Mär</div>
-                                                </div>
-                                                                                    </div>
-                                    </div>
-                                    <div class="cell large-7">
-                                        <div class="category mtm5 mtd0"></div>
-                                        <h2 class="h4">
-                                            Ergebnisse: Bezirksmeisterschaften Rhythmische Sportgymnastik Schwaben
-                                        </h2>
-                                        <div class="place">Gersthofen</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                                            <div class="cell">
-                            <a class="item" href="/events/29. Münchner Pokal im TGM-TGW-KGW">
-                                <div class="grid-x grid-margin-x">
-                                                                        <div class="cell small-8 large-3">
-                                        <div class="dates">
-                                            <div class="from date">
-                                                <div class="dayname">So</div>
-                                                <h2>03</h2>
-                                                <div class="day">Jul</div>
-                                            </div>
-                                                                                            <div class="to date">
-                                                    <div class="dayname">Sa</div>
-                                                    <h2>31</h2>
-                                                    <div class="day">Dez</div>
-                                                </div>
-                                                                                    </div>
-                                    </div>
-                                    <div class="cell large-7">
-                                        <div class="category mtm5 mtd0">Turnerjugendwettkämpfe</div>
-                                        <h2 class="h4">
-                                            29. Münchner Pokal im TGM/TGW/KGW
-                                        </h2>
-                                        <div class="place">Allach</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                                            <div class="cell">
-                            <a class="item" href="/events/kampfrichterlehrgang-für-gerätturnen-männlich">
-                                <div class="grid-x grid-margin-x">
-                                                                        <div class="cell small-8 large-3">
-                                        <div class="dates">
-                                            <div class="from date">
-                                                <div class="dayname">Mo</div>
-                                                <h2>10</h2>
-                                                <div class="day">Okt</div>
-                                            </div>
-                                                                                    </div>
-                                    </div>
-                                    <div class="cell large-7">
-                                        <div class="category mtm5 mtd0"></div>
-                                        <h2 class="h4">
-                                            Kampfrichterlehrgang Gerätturnen männlich P-Übungen
-                                        </h2>
-                                        <div class="place">Vilsbiburg; Ballsporthalle</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                                            <div class="cell">
-                            <a class="item" href="/events/dance2u">
-                                <div class="grid-x grid-margin-x">
-                                                                        <div class="cell small-8 large-3">
-                                        <div class="dates">
-                                            <div class="from date">
-                                                <div class="dayname">Sa</div>
-                                                <h2>15</h2>
-                                                <div class="day">Okt</div>
-                                            </div>
-                                                                                            <div class="to date">
-                                                    <div class="dayname">So</div>
-                                                    <h2>16</h2>
-                                                    <div class="day">Okt</div>
-                                                </div>
-                                                                                    </div>
-                                    </div>
-                                    <div class="cell large-7">
-                                        <div class="category mtm5 mtd0">Gymnastik &amp; TanzShow &amp; Vorführung</div>
-                                        <h2 class="h4">
-                                            Dance2u
-                                        </h2>
-                                        <div class="place">Holzkirchen</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                                            <div class="cell">
-                            <a class="item" href="/events/bayernpokal_weiblich">
-                                <div class="grid-x grid-margin-x">
-                                                                        <div class="cell small-8 large-3">
-                                        <div class="dates">
-                                            <div class="from date">
-                                                <div class="dayname">Sa</div>
-                                                <h2>15</h2>
-                                                <div class="day">Okt</div>
-                                            </div>
-                                                                                    </div>
-                                    </div>
-                                    <div class="cell large-7">
-                                        <div class="category mtm5 mtd0"></div>
-                                        <h2 class="h4">
-                                            Bayern-Pokal weiblich
-                                        </h2>
-                                        <div class="place"></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                                            <div class="cell">
-                            <a class="item" href="/events/bayernpokal_männlich">
-                                <div class="grid-x grid-margin-x">
-                                                                        <div class="cell small-8 large-3">
-                                        <div class="dates">
-                                            <div class="from date">
-                                                <div class="dayname">So</div>
-                                                <h2>16</h2>
-                                                <div class="day">Okt</div>
-                                            </div>
-                                                                                    </div>
-                                    </div>
-                                    <div class="cell large-7">
-                                        <div class="category mtm5 mtd0"></div>
-                                        <h2 class="h4">
-                                            Bayern-Pokal männlich
-                                        </h2>
-                                        <div class="place"></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                                            <div class="cell">
-                            <a class="item" href="/events/gau-mm-gerätturnen-weiblich">
-                                <div class="grid-x grid-margin-x">
-                                                                        <div class="cell small-8 large-3">
-                                        <div class="dates">
-                                            <div class="from date">
-                                                <div class="dayname">Mo</div>
-                                                <h2>17</h2>
-                                                <div class="day">Okt</div>
-                                            </div>
-                                                                                    </div>
-                                    </div>
-                                    <div class="cell large-7">
-                                        <div class="category mtm5 mtd0"></div>
-                                        <h2 class="h4">
-                                            Gau-Mannschaftsmeisterschaften Gerätturnen weiblich
-                                        </h2>
-                                        <div class="place">Vilsbiburg</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                                            <div class="cell">
-                            <a class="item" href="/events/liga_weiblich_1">
-                                <div class="grid-x grid-margin-x">
-                                                                        <div class="cell small-8 large-3">
-                                        <div class="dates">
-                                            <div class="from date">
-                                                <div class="dayname">Sa</div>
-                                                <h2>22</h2>
-                                                <div class="day">Okt</div>
-                                            </div>
-                                                                                    </div>
-                                    </div>
-                                    <div class="cell large-7">
-                                        <div class="category mtm5 mtd0"></div>
-                                        <h2 class="h4">
-                                            Liga weiblich 1
-                                        </h2>
-                                        <div class="place"></div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                                            <div class="cell">
-                            <a class="item" href="/events/Gau-Mannschaftswettkämpfe Bayernpokal">
-                                <div class="grid-x grid-margin-x">
-                                                                            <div class="cell small-4 large-2">
-                                            <div class="icon">
-                                                <picture >
-	<source srcset="/sport/regionen_hier_nicht/oberbayern/donau-ilm/bilder/2022/image-thumb__2421__events_icon/white-male-g37671fa69_640.jpg 1x, /sport/regionen_hier_nicht/oberbayern/donau-ilm/bilder/2022/image-thumb__2421__events_icon/white-male-g37671fa69_640@2x.jpg 2x" type="image/jpeg" />
-	<img src="/sport/regionen_hier_nicht/oberbayern/donau-ilm/bilder/2022/image-thumb__2421__events_icon/white-male-g37671fa69_640.jpg" width="80" height="80" alt="" loading="lazy" />
-</picture>
-
-                                            </div>
-                                        </div>
-                                                                        <div class="cell small-8 large-3">
-                                        <div class="dates">
-                                            <div class="from date">
-                                                <div class="dayname">So</div>
-                                                <h2>23</h2>
-                                                <div class="day">Okt</div>
-                                            </div>
-                                                                                    </div>
-                                    </div>
-                                    <div class="cell large-7">
-                                        <div class="category mtm5 mtd0"></div>
-                                        <h2 class="h4">
-                                            Gau Mannschaftswettkämpfe Bayernpokal
-                                        </h2>
-                                        <div class="place">Gerolfing</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                                    </div>
-                <div class="grid-x grid-margin-x mtm4 mtd4">
-                    <div class="cell">
-                        <div class="paging">
-    <span class="curnumber">
-        Seiten 1/13
-    </span>
-
-    <a class="first" href="/events?page=1">&lt;</a>
-
-    
-    <span class="pages">
-                                    <a class="current" href="/events?page=1">
-                    1
-                </a>
-                                                <a class="page" href="/events?page=2">
-                    2
-                </a>
-                                                <a class="page" href="/events?page=3">
-                    3
-                </a>
-                                                <a class="page" href="/events?page=4">
-                    4
-                </a>
-                                                <a class="page" href="/events?page=5">
-                    5
-                </a>
-                        </span>
-
-            <a class="next" href="/events?page=2">Weiter</a>
-    
-    <a class="last" href="/events?page=15">&gt;</a>
-</div>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-
-
-        </main>
-
-                    
-
-
-                
-        
-    
-        
-    <footer class="mt">
-        <div class="bgblue">
-            <div class="grid-container">
-                <div class="grid-x grid-margin-x">
-                    <div class="cell">
-                        <h5>
-                            Bayerischer Turnverband e. V. - Wir sind Bayerns Fitmacher!
-                        </h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bgwhite">
-            <div class="grid-container">
-                <div class="grid-x grid-margin-x">
-                    <div class="cell medium-6 large-3">
-                        <p><a href="https://btv-turnen.de/der-btv/karriere" target="_blank">Karriere</a></p>
-
-<p>Werde Teil unseres Teams - egal ob im Ehrenamt oder Hauptamt. Wir freuen uns auf dich!</p>
-
-                    </div>
-                    <div class="cell medium-6 large-3">
-                        <p><a href="/kontakt">Kontakt</a></p>
-
-<p>Du hast uns etwas zu sagen oder eine Frage brennt dir unter den Nägeln? Wir helfen dir gerne weiter.</p>
-
-                    </div>
-                    <div class="cell medium-6 large-3">
-                        <p><a href="https://btv-turnen.de/der-btv/ueber-uns/impressum" target="_blank">Impressum</a></p>
-
-<p>Neben der Kür kommt auch immer noch die Pflicht. Was du wissen musst, findest du hier.</p>
-
-                    </div>
-                    <div class="cell medium-6 large-3">
-                        <p><a href="https://btv-turnen.de/der-btv/ueber-uns/datenschutz" target="_blank">Datenschutz</a></p>
-
-<p>Deine Daten sind bei uns sicher! Bedenken? Dann findest du hier alle Infos.</p>
-
-
-                                            </div>
-                </div>
-            </div>
-        </div>
-        <div class="grid-container">
-            <div class="grid-x grid-margin-x">
-                <div class="cell">
-                    <nav>
-                        <ul>
-                                                                                                                                        <li>
-                                            <a  class= main href="/der-btv">
-                                                Der BTV
-                                            </a>
-                                        </li>
-                                                                                                                                                <li>
-                                            <a  class= main href="/bildung">
-                                                Bildung
-                                            </a>
-                                        </li>
-                                                                                                                                                <li>
-                                            <a  class= main href="/sport">
-                                                Sport
-                                            </a>
-                                        </li>
-                                                                                                                                                <li>
-                                            <a  class= main href="/turnerjugend">
-                                                Turnerjugend
-                                            </a>
-                                        </li>
-                                                                                                                                                                                                                    <li>
-                                            <a  class= main href="/vereinsservice">
-                                                Vereinsservice
-                                            </a>
-                                        </li>
-                                                                                                                                                <li>
-                                            <a  class=icon search main href="/suche">
-                                                Suche
-                                            </a>
-                                        </li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </ul>
-                    </nav>
-                </div>
-                <div class="cell text-center">
-                                            <a href="/" class="logo">
-                            <picture >
-	<source srcset="/sport/regionen_hier_nicht/oberfranken/logo-btv-tbz-oberfranken.svg 1x" type="image/svg+xml" />
-	<img src="/sport/regionen_hier_nicht/oberfranken/logo-btv-tbz-oberfranken.svg" width="168" height="60" alt="" loading="lazy" />
-</picture>
-
-                        </a>
-                                    </div>
-                <div class="cell text-center">
-                    <p>
-                        © Bayerischer Turnverband e.V., 2022
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
-            
-                
-     
-    
-    
-    <aside class="sidebar">
-        <nav>
-            <ul>
-                                                            
-                            <li>
-                                <a  class="icon contact main" href="/kontakt">
-                                    Kontakt
-                                </a>
-                            </li>
-                                                                        </ul>
-        </nav>
-    </aside>`;
-
+  const test = `<article class="brick_event list cell"> <div class="grid-x grid-margin-x"> <div class="cell"> <a class="item" href="/events/2085005-tu-cup"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>28</h2> <div class="day">Jan</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0">Rope Skipping</div><h2 class="h4"> Bayerischer Triple Under Cup </h2> <div class="place"></div></div></div></a> </div><div class="cell"> <a class="item" href="/events/2085001-bem"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>28</h2> <div class="day">Jan</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0">Rope Skipping</div><h2 class="h4"> Bayerische Einzelmeisterschaft </h2> <div class="place"></div></div></div></a> </div><div class="cell"> <a class="item" href="/events/2085004-du-cup"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>28</h2> <div class="day">Jan</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0">Rope Skipping</div><h2 class="h4"> Bayerischer Double Under Cup </h2> <div class="place"></div></div></div></a> </div><div class="cell"> <a class="item" href="/events/20230204-Karilehrgang"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>04</h2> <div class="day">Feb</div></div><div class="to date"> <div class="dayname">So</div><h2>05</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0"></div><h2 class="h4"> Kampfrichterlehrgang GT WBL P-Übungen inkl. Prüfung D-Lizenz </h2> <div class="place">Gundelfingen</div></div></div></a> </div><div class="cell"> <a class="item" href="/events/20230211-Turn10-Lehrgang"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>11</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0"></div><h2 class="h4"> Turn10-Lehrgang </h2> <div class="place">Wallerstein</div></div></div></a> </div><div class="cell"> <a class="item" href="/events/bm-dmt"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">So</div><h2>12</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0">Trampolinturnen</div><h2 class="h4"> Bayerische Meisterschaften Doppelmini-Trampolinturnen </h2> <div class="place"></div></div></div></a> </div><div class="cell"> <a class="item" href="/events/lanhanteltraining lehrgang tg ansbach"> <div class="grid-x grid-margin-x"> <div class="cell small-4 large-2"> <div class="icon"> <picture><source srcset="/regionen/mittelfranken/image-thumb__3366__events_icon/langhanteltraining_Bild%201.jpg 1x, /regionen/mittelfranken/image-thumb__3366__events_icon/langhanteltraining_Bild%201@2x.jpg 2x" type="image/jpeg"><img src="/regionen/mittelfranken/image-thumb__3366__events_icon/langhanteltraining_Bild%201.jpg" width="80" height="80" alt="" loading="lazy"></picture> </div></div><div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>18</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0"></div><h2 class="h4"> Lehrgang - Langhanteltraining im Vereinssport </h2> <div class="place">Heilsbronn</div></div></div></a> </div><div class="cell"> <a class="item" href="/events/20230218_kari-lehrgang-weiblich_kempten"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>18</h2> <div class="day">Feb</div></div><div class="to date"> <div class="dayname">So</div><h2>19</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0"></div><h2 class="h4"> KaRi-Lehrgang Gerätturnen weiblich in Kempten </h2> <div class="place">Kempten</div></div></div></a> </div><div class="cell"> <a class="item" href="/events/20230225-Kinderturnlehrgang"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>25</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0"></div><h2 class="h4"> Kinderturnlehrgang P1-P5 </h2> <div class="place">Bäumenheim</div></div></div></a> </div></div><div class="grid-x grid-margin-x mtm4 mtd4"> <div class="cell"> <div class="paging"> <span class="curnumber"> Seiten 4/13 </span> <a class="first" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=1">&lt;</a> <a class="previous" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=3">Zurück</a> <span class="pages"> <a class="page" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=2"> 2 </a> <a class="page" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=3"> 3 </a> <a class="current" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=4"> 4 </a> <a class="page" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=5"> 5 </a> <a class="page" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=6"> 6 </a> </span> <a class="next" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=5">Weiter</a> <a class="last" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=15">&gt;</a></div></div></div></article>`;
+  const testItem = `<article class="brick_blog list cell"> <div class="grid-x grid-margin-x"> <div class="cell large-8 large-offset-2"> <h1> Ergebnisse: Bezirksmeisterschaften Rhythmische Sportgymnastik Schwaben </h1> <div class="h6"> 20.02.2023 - 20.03.2023 </div><div class="copy"> <p>Endlich wieder Wettkampf! Nach mehr als zwei Jahren Pause durften sich die besten Gymnastinnen Schwabens in ihren jeweiligen Leistungs- und Altersklassen messen. Außerdem standen die Qualifikationen für die Bayerischen Meisterschaften an, die ebenfalls in Gersthofen ausgetragen wurden.</p><p><a data-tabindex-counter="1" data-tabindex-value="none" href="/regionen/schwaben/aktuelles/2022/2-2022-siegerliste-rsg-bezirksmeisterschaften.pdf" tabindex="-1" target="_blank">Siegerliste RSG Bezirksmeisterschaften Schwaben 2022</a></p></div><button onclick="history.back()" class="button secondary mtm2 mtd3">zurück</button> </div></div></article>`;
   // news-gallery
   const months = JSON.parse(`{
-    'Jan': 0,
-    'Feb': 1,
-    'Mär': 2,
-    'Apr': 3,
-    'Mai': 4,
-    'Jun': 5,
-    'Jul': 6,
-    'Aug': 7,
-    'Sep': 8,
-    'Okt': 9,
-    'Nov': 10,
-    'Dez': 11
+    "Jan": 0,
+    "Feb": 1,
+    "Mär": 2,
+    "Apr": 3,
+    "Mai": 4,
+    "Jun": 5,
+    "Jul": 6,
+    "Aug": 7,
+    "Sep": 8,
+    "Okt": 9,
+    "Nov": 10,
+    "Dez": 11
   }`);
   const revMonths = Object.entries(months).reduce((st, [k, v]) => {
     st[v] = k;
@@ -577,25 +36,41 @@
   const days = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
   let dataNews = [];
 
-  const loadNewsItem = (link) =>
-    fetch(`${link}`)
-      .then((_) => _.text())
-      .then((_) => {
-        const temp = document.createElement('div');
-        temp.innerHTML = _.split(
-          '<article class="brick_blog list cell">'
-        )[1].split('</article>')[0];
-        const [from, to] = temp
-          .querySelector('div.h6')
-          .innerText.split(',')[0]
-          .split('-')
-          .map((_) => _.trim().split('.').reverse());
-        return {
-          from: new Date(from),
-          to: !to ? undefined : new Date(to),
-          details: temp.querySelector('div.copy').innerText.trim(),
-        };
-      });
+  const loadNewsItem = (link, test) =>
+    (!!test
+      ? Promise.resolve(testItem)
+      : fetch(`${link}`).then((_) => _.text())
+    ).then((_) => {
+      const temp = document.createElement('div');
+      temp.innerHTML = _.split(
+        '<article class="brick_blog list cell">'
+      )[1].split('</article>')[0];
+      const [from, to] = temp
+        .querySelector('div.h6')
+        .innerText.split(',')[0]
+        .split('-')
+        .map((_) => _.trim().split('.').reverse());
+      return {
+        from: new Date(from),
+        to: !to ? undefined : new Date(to),
+        details: temp.querySelector('div.copy').innerText.trim(),
+        docs: {
+            'Ausschreibung': Array.from(temp.querySelectorAll('a'))
+                .filter(el => el.textContent.includes('Ausschreibung'))
+                .map(_ => _.href)[0],
+            'Anmeldung': Array.from(temp.querySelectorAll('a'))
+                .filter(el => el.textContent.includes('Anmeldung'))
+                .map(_ => _.href)[0],
+            'Wegbeschreibung': Array.from(temp.querySelectorAll('a'))
+                .filter(el => el.textContent.includes('Wegbeschreibung'))
+                .map(_ => _.href)[0],
+            'Siegerliste': Array.from(temp.querySelectorAll('a'))
+                .filter(el => el.textContent.includes('Siegerliste'))
+                .map(_ => _.href)[0]
+
+        }
+      };
+    });
 
   const loadNewsList = (page, test) =>
     (!!test
@@ -626,7 +101,9 @@
     loadNewsList(page, test)
       .then((_) =>
         Promise.all(
-          _.map((_) => loadNewsItem(_.link).then((item) => ({ ..._, ...item })))
+          _.map((_) =>
+            loadNewsItem(_.link, test).then((item) => ({ ..._, ...item }))
+          )
         )
       )
       .then((_) => {
@@ -645,21 +122,20 @@
     )
     .then((dataNews) => formatterNews(dataNews));
 
+  const linkTo = (link) => window.location=link;
   const formatterNews = (dataNews, loading) => {
     document.querySelector('#news div.content').innerHTML = !!loading
       ? 'Lade weitere Nachrichten' + dataNews.length
       : dataNews
-          .map(
+          .map( 
             (_) =>
-              `<a href="${
-                _.link
-              }" style="margin:0rem; padding:0.5rem; display: flex; border-bottom: 1px solid lightgray;">
-            <div style="width: 125px; display: flex; align-items: center">
-              <div style="display: flex; flex-direction: column; align-items: center;">
+              `<button onclick="linkTo('${_.link}')" style="margin:0rem; padding:0.5rem; display: flex; background: transparent; cursor: pointer; border-width: 0; border-bottom: 1px solid lightgray; align-items: stretch; color: black;">
+            <div style="width: 110px; display: flex; align-items: stretch">
+              <div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: space-around">
                 <span>
                   ${days[_.from.getDay()]}
                 </span>
-                <span style="font-size: 2rem; font-weight: bold;">
+                <span style="font-size: 2.5rem; font-weight: bold;">
                   ${('00' + _.from.getDate()).slice(-2)} 
                 </span>
                 <span>
@@ -669,12 +145,12 @@
             ${
               !!_.to
                 ? `
-                <span style="font-size: 2rem; font-weight: bold; padding: 0.5rem;">-</span>
-                <div style="display: flex; flex-direction: column; align-items: center;">
+                <span style="font-size: 2rem; font-weight: bold; padding: 0.5rem; align-self: center">-</span>
+                <div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: space-around">
                   <span>
                     ${days[_.to.getDay()]}
                   </span>
-                  <span style="font-size: 2rem; font-weight: bold;">
+                  <span style="font-size: 2.5rem; font-weight: bold;">
                     ${('00' + _.to.getDate()).slice(-2)} 
                   </span>
                   <span>
@@ -686,15 +162,18 @@
             </div>
             ${
               _.img
-                ? `<img style="width: 100px;" src="${_.img}" />`
-                : `<div style="width: 100px;"></div>`
+                ? `<img style="width: 100px; height: 100px; margin: 0 0.5rem;" src="${_.img}" />`
+                : `<div style="width: 100px; height: 100px; margin: 0 0.5rem;"></div>`
             }
-            <div>
-            ${_.place ? _.place : 'Kein Ort'} | ${_.category ? _.category : ''} 
-            <br />
-            ${_.title}
+            <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                <span>${_.place ? _.place : 'Kein Ort'} ${_.category ? ' | '+_.category : ''} </span>
+                <h2 style="margin: 0.5rem 0; font-size: 2rem; text-align: left;">${_.title}</h2>
+                <div style="flex: 1;"></div>
+                <div>
+                    ${Object.entries(_.docs).filter(_ => _[1]).map(([name, link]) => `<a href="${link}">${name}</a>`).join(' ')}
+                </div>
             </div>
-          </a>`
+          </button>`
           )
           .join('') +
         ['', '', '', '', '']
