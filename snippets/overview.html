@@ -5,8 +5,1368 @@
 </div>
 
 <script>
+  const dataNews = [
+    {
+        "place": "Gersthofen",
+        "category": "",
+        "title": "Ergebnisse: Bezirksmeisterschaften Rhythmische Sportgymnastik Schwaben",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/2022bmrsg",
+        "from": new Date("2022-02-19T23:00:00.000Z"),
+        "to": new Date("2022-03-19T23:00:00.000Z"),
+        "details": "Endlich wieder Wettkampf! Nach mehr als zwei Jahren Pause durften sich die besten Gymnastinnen Schwabens in ihren jeweiligen Leistungs- und Altersklassen messen. Außerdem standen die Qualifikationen für die Bayerischen Meisterschaften an, die ebenfalls in Gersthofen ausgetragen wurden.\n\nSiegerliste RSG Bezirksmeisterschaften Schwaben 2022",
+        "docs": {
+            "Siegerliste": "https://oberfranken.btv-turnen.de/regionen/schwaben/aktuelles/2022/2-2022-siegerliste-rsg-bezirksmeisterschaften.pdf"
+        }
+    },
+    {
+        "place": "Allach",
+        "category": "Turnerjugendwettkämpfe",
+        "title": "29. Münchner Pokal im TGM/TGW/KGW",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/29.%20M%C3%BCnchner%20Pokal%20im%20TGM-TGW-KGW",
+        "from": new Date("2022-07-02T22:00:00.000Z"),
+        "to": new Date("2022-12-30T23:00:00.000Z"),
+        "details": "Ausschreibung",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/oberbayern/muenchen/2022/Ausschreibung_Muenchner_Pokal_2022.pdf"
+        }
+    },
+    {
+        "place": "Vilsbiburg; Ballsporthalle",
+        "category": "",
+        "title": "Kampfrichterlehrgang Gerätturnen männlich P-Übungen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/kampfrichterlehrgang-f%C3%BCr-ger%C3%A4tturnen-m%C3%A4nnlich",
+        "from": new Date("2022-10-09T22:00:00.000Z"),
+        "details": "Meldeschluss: 25.09.2022\n\nAusschreibung.pdf\n\nWegbeschreibung",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/niederbayern/landshut/2022/2232030110_Kari_GT_m_P.pdf",
+            "Wegbeschreibung": "https://goo.gl/maps/am1myx3iFs8Chepm7"
+        }
+    },
+    {
+        "place": "Holzkirchen",
+        "category": "Gymnastik & TanzShow & Vorführung",
+        "title": "Dance2u",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/dance2u",
+        "from": new Date("2022-10-14T22:00:00.000Z"),
+        "to": new Date("2022-10-15T22:00:00.000Z"),
+        "details": "Übersicht aller wichtigen Informationen: \n\nAusschreibung 2022\n\nWegbeschreibung (via Google Maps)\nParkplätze für PKWs und Kleinbusse sind ausreichend in der Tiefgarage vorhanden. Die erste Stunde in der Tiefgarage ist kostenlos, danach beträgt die Gebühr 0,50 Euro je angefangener Stunden.\n\nSpeisekarte Dance2u\n\n\nVerteilung der Altersklassen: \nSamstag:                 \n\n\n\tMinis        \n\tKids\n\tTeens\n\tSeniors\n\n\n Sonntag:\n\n\n\tJuniors\n\tAdults\n\n\n \n\n\n\t\n\t\t\n\t\t\tSamstag\n\t\t\tZeitplan \n\t\t\tStartliste Vormittag\n\t\t\tStartliste Nachmittag\n\t\t\tErgebnisse \n\t\t\n\t\t\n\t\t\tSonntag\n\t\t\tZeitplan \n\t\t\tStartliste Vormittag\n\t\t\tStartliste Nachmittag\n\t\t\tErgebnisse",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/btj/btj/events/2022_Dance2u/Dance2u_Ausschreibung%202022.pdf",
+            "Wegbeschreibung": "https://www.google.de/maps/place/Baumgartenstra%C3%9Fe+12,+83607+Holzkirchen/@47.876589,11.6937516,17z/data=!3m1!4b1!4m5!3m4!1s0x479dec294df35277:0x8886924ae672a8e!8m2!3d47.876589!4d11.6959403"
+        }
+    },
+    {
+        "place": "",
+        "category": "",
+        "title": "Bayern-Pokal weiblich",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/bayernpokal_weiblich",
+        "from": new Date("2022-10-14T22:00:00.000Z"),
+        "details": "",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "",
+        "title": "Bayern-Pokal männlich",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/bayernpokal_m%C3%A4nnlich",
+        "from": new Date("2022-10-15T22:00:00.000Z"),
+        "details": "",
+        "docs": {}
+    },
+    {
+        "place": "Vilsbiburg",
+        "category": "",
+        "title": "Gau-Mannschaftsmeisterschaften Gerätturnen weiblich",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/gau-mm-ger%C3%A4tturnen-weiblich",
+        "from": new Date("2022-10-19T22:00:00.000Z"),
+        "details": "Erstmalig nach der langen Coronapause konnte wieder ein Mannschaftswettkampf im Gerätturnen weiblich am 16. Oktober 2022 durchgeführt werden. Dank des engagierten Einsatzes des Geschwisterduos Corinna Fröschl und Vanessa Resch vom TSV Abensberg, welche die Ausschreibung und Durchführung des Wettkampfes in die Hand genommen haben, erlebten über 120 Turnerinnen einen spannenden Wettkampf. Als Ausrichter trug der TSV Vilsbiburg wesentlich für den reibungslosen Ablauf des Wettkampfes bei. Ein Dank geht auch an alle Kampfrichter:innen, welche nicht nur für die Wertungen, sondern auch für die Fairness bei der Punktevergabe sorgten.\n\nSiegerliste_GauMMw_2022_Vilsbiburg.pdf",
+        "docs": {
+            "Siegerliste": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/niederbayern/landshut/2022/Ausschreibungen/Siegerliste_GauMMw_2022_Vilsbiburg.pdf"
+        }
+    },
+    {
+        "place": "",
+        "category": "",
+        "title": "Liga weiblich 1",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/liga_weiblich_1",
+        "from": new Date("2022-10-21T22:00:00.000Z"),
+        "details": "",
+        "docs": {}
+    },
+    {
+        "place": "Gerolfing",
+        "category": "Wettkampfsport",
+        "title": "Mini Team Wettkampf",
+        "img": "https://oberfranken.btv-turnen.de/_default_upload_bucket/image-thumb__2424__events_icon/gymnastics-g0169773b5_640.png",
+        "link": "https://oberfranken.btv-turnen.de/events/Mini%20Team%20Wettkampf",
+        "from": new Date("2022-10-22T22:00:00.000Z"),
+        "details": "Veranstalter Bayerischer Turnverband e.V. - Turngau Donau-Ilm\n\nAusrichter FC Gerolfing\n\nOrt/Wettkampfstätte:  Mehrzweckhalle bei der Grundschule Gerolfing, Wolfsgartenstr. 4, 85049 Ingolstadt-Gerolfing. Anfahrt unter „fc-gerolfing.de“\n\nTermin Samstag, 22. Oktober 2022\n\nAusschreibung : Ausschreibung_MiniTeam_2022.pdf\n\nMeldebögen: Ausschreibung_MiniTeam_2022-2.pdf\n\n \n\nSiegerliste: MiniTeam-2022",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/oberbayern/donau-ilm/wettkaempfe/2022/Ausschreibung_MiniTeam_2022-2.pdf"
+        }
+    },
+    {
+        "place": "Gerolfing",
+        "category": "",
+        "title": "Gau Mannschaftswettkämpfe Bayernpokal",
+        "img": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/oberbayern/donau-ilm/bilder/2022/image-thumb__2421__events_icon/white-male-g37671fa69_640.jpg",
+        "link": "https://oberfranken.btv-turnen.de/events/Gau-Mannschaftswettk%C3%A4mpfe%20Bayernpokal",
+        "from": new Date("2022-10-22T22:00:00.000Z"),
+        "details": "Veranstalter: Bayerischer Turnverband e.V. - Turngau Donau-Ilm \n\nOrt: Mehrzweckhalle bei der Grundschule Gerolfing, Wolfsgartenstr. 4, 85049 Ingolstadt-Gerolfing. Anfahrt unter „fc-gerolfing.de“\n\nWettkampfleitung: Christine Leixner, Fachwartin Gerätturnen wbl.\n\nAusschreibung: Ausschreibung_MWK_2022.pdf\n\nMeldebögen: Meldebogen_MWK.docx\n\n \n\nHier gibt es die Siegerliste Gau-Mannschaftswettkampf 2022.pdf",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/oberbayern/donau-ilm/wettkaempfe/2022/Ausschreibung_MWK_2022.pdf",
+            "Siegerliste": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/oberbayern/donau-ilm/wettkaempfe/2022/Siegerliste%20Gau-Mannschaftswettkampf%202022.pdf"
+        }
+    },
+    {
+        "place": "",
+        "category": "",
+        "title": "Liga männlich 1",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/liga_m%C3%A4nnlich_1",
+        "from": new Date("2022-10-22T22:00:00.000Z"),
+        "details": "",
+        "docs": {}
+    },
+    {
+        "place": "TSV Unterföhring",
+        "category": "",
+        "title": "Gauentscheid Bayern Pokal Gerätturnen 2022",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/Gauentscheid%20Bayern%20Pokal%202022",
+        "from": new Date("2022-10-23T22:00:00.000Z"),
+        "details": "Qualifikation Regionalentscheid – P-Übungen - Mannschaft\n\nSiegerlisten_Maennlich_BayernPokal_Finale_2022.zip\n\nSiegerlisten_Weiblich_BayernPokal_Finale_2022.zip",
+        "docs": {
+            "Siegerliste": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/oberbayern/muenchen/2022/Siegerlisten_Maennlich_BayernPokal_Finale_2022.zip"
+        }
+    },
+    {
+        "place": "Sportheim Grammelkam, Kumhausen",
+        "category": "",
+        "title": "Turn10 - Grundlizenz Kampfrichterkurs",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/turn10-grundlizenz-kampfrichterkurs",
+        "from": new Date("2022-11-06T23:00:00.000Z"),
+        "details": "Grundlizenz Kampfrichterkurs im Sportheim Grammelkam, Grammelkam 14, 84036 Kumhausen\n\nAusschreibung.pdf\n\nAnfahrtsweg\n\nMeldeschluss: 19. Oktober 2022",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/niederbayern/landshut/2022/Ausschreibungen/Turn10Grundlizenzlehrgang.pdf"
+        }
+    },
+    {
+        "place": "Online",
+        "category": "Fitness, Aerobic & Trends",
+        "title": "Breath, Flow, Relax (8 UE)",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/Breath,%20Flow,%20Relax%20(8%20UE)",
+        "from": new Date("2022-11-10T23:00:00.000Z"),
+        "to": new Date("2022-11-17T23:00:00.000Z"),
+        "details": "Termin: \nDonnerstag, 10.11.2022 19 bis 22 Uhr (Teil 1)\nDonnerstag, 17.11.2022 19 bis 22 Uhr (Teil 2)\n\nOrt: \nOnline\n\nLehrgangsinhalte:\nAtemübungen, Entspannungsmethoden und Flows für den Rücken\n\n \n\nAusschreibung",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/oberbayern/muenchen/2022/222203082353_Ausschreibung.pdf"
+        }
+    },
+    {
+        "place": "Rottendorf",
+        "category": "",
+        "title": "24. Bärchenpokal in Rottendorf",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/baerchenpokal1",
+        "from": new Date("2022-11-18T23:00:00.000Z"),
+        "to": new Date("2022-11-19T23:00:00.000Z"),
+        "details": "zur Ausschreibung",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/unterfranken/24._baerchenpokal_2020_ausschreibung.pdf"
+        }
+    },
+    {
+        "place": "Illertissen",
+        "category": "",
+        "title": "Ergebnisse: Schwäbische Bezirksmeisterschaften Kunstturnen weiblich",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/2022bmeisterwbl",
+        "from": new Date("2022-11-18T23:00:00.000Z"),
+        "details": "Am 19. November 2022 fanden in der Illertisser Vöhlinhalle (Gottfried-Hart-Straße 6) die Bezirksmeisterschaften im Kunstturnen weiblich statt.\n\nErgebnisse: PDF-Datei",
+        "docs": {}
+    },
+    {
+        "place": "TSV Neufahrn",
+        "category": "",
+        "title": "Neufahrner Äktschntagen 2022",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/Neufahrner%20%C3%84ktschntagen%202022",
+        "from": new Date("2022-11-19T23:00:00.000Z"),
+        "to": new Date("2022-11-20T23:00:00.000Z"),
+        "details": "mit ÜL-Lizenzverlängerung\n\nam 19./20. November 2022 beim TSV Neufahrn",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "",
+        "title": "Liga männlich 2",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/liga_m%C3%A4nnlich_2",
+        "from": new Date("2022-11-19T23:00:00.000Z"),
+        "details": "",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "",
+        "title": "Gauturntag Turngau Oberpfalz-Süd",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/gauturntag-oberpfalz-sued",
+        "from": new Date("2022-10-09T22:00:00.000Z"),
+        "details": "Der Turngau Oberpfalz Süd lädt seine Mitgliedsvereine zum \n\n \n\nGauturntag 2022 mit Neuwahl des Vorstands\n\n \n\nwann?      Freitag, 25.11.2022 um 19.00 Uhr\n\nwo?         Turmrestaurant Obermeier, Klardorfer Str. 30, 92421 Schwandorf (Klardorf)\n\n \n\nWir freuen uns über zahlreiche Teilnahme. \n\nEuer Vorstand des TG Oberpfalz-Süd",
+        "docs": {}
+    },
+    {
+        "place": "Coburg",
+        "category": "",
+        "title": "Jubiläumsjahresabschlussfeier für Vorstandschaft Turngau und Gäste (geschlossene Veranstaltung)",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/Jubil%C3%A4umsjahresabschlussfeierf%C3%BCrVorstandschaftTurngauundG%C3%A4ste",
+        "from": new Date("2022-12-16T23:00:00.000Z"),
+        "details": "14:00 bis 17:00",
+        "docs": {}
+    },
+    {
+        "place": "Gymnastikraum des VfR Haag, Hagenaustr. 21, 85410 Haag a.d.Amper",
+        "category": "",
+        "title": "Yin und Yang Yoga (8 UE)",
+        "img": "https://oberfranken.btv-turnen.de/_default_upload_bucket/image-thumb__2995__events_icon/IMG-20220713-WA0000.jpg",
+        "link": "https://oberfranken.btv-turnen.de/events/Yin%20und%20Yang%20Yoga",
+        "from": "2023-01-13T23:00:00.000Z",
+        "details": "14.01.2023\n\nIn die Ruhe und Kraft der Winterenergie eintauchen\n\n\nReferentin: Michelle Feistl\n\nBeginn 10 Uhr bis 17 Uhr\n\nGymnastikraum des VfR Haag, Hagenaustr. 21, 85410 Haag a.d.Amper\n\nAnsprechpartner und Lehrgangsleitung Petra Silberbauer ps.in.balance@web.de\n\n Anmeldeschluss 05.01.2023\n\nLehrgangsgebühr BTV Mitlgiedsverein 50 Euro\nSonstige 75 Euro\n\n \nLZV 1. Lizenzstufe , evtl. Prävention",
+        "docs": {}
+    },
+    {
+        "place": "nn",
+        "category": "Rhythmische Sportgymnastik",
+        "title": "Kampfrichterlehrgang Rhythm. Sportgymn.",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230114-rsg-kampfrichterlehrgang",
+        "from": "2023-01-13T23:00:00.000Z",
+        "details": "Kampfrichterlehrgang mit Birgit Guhr",
+        "docs": {}
+    },
+    {
+        "place": "Dillingen",
+        "category": "",
+        "title": "Trainer-Assistenten-Lehrgang 1. Wochenende",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230114-TrainerAssistentenLehrgang-Teil1",
+        "from": "2023-01-13T23:00:00.000Z",
+        "to": "2023-01-14T23:00:00.000Z",
+        "details": "Hier findet Ihr die Ausschreibung!\n\n \n\nOrt: Dillingen",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/regionen/schwaben/oberdonau/2023/Ausschreibungen/Ausschreibung_Assistentenlehrgang_2023.pdf"
+        }
+    },
+    {
+        "place": "Altusried",
+        "category": "",
+        "title": "Trainer-Assistenten-Ausbildung in Altusried",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230121_trainer-assistenten-ausbildung_altusried",
+        "from": "2023-01-20T23:00:00.000Z",
+        "to": "2023-01-28T23:00:00.000Z",
+        "details": "Ort: 3-fach-Sporthalle, Altusried\n\nAusschreibung mit Meldeformular (PDF) (Meldeschluss: 09.01.2023)",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/regionen/schwaben/allgaeu/ug1/dokumente/2023/ug1-2023-trainer-assistenten-ausbildung.pdf"
+        }
+    },
+    {
+        "place": "Dillingen",
+        "category": "",
+        "title": "Trainer-Assistenten-Lehrgang 2. Wochenende",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20220121-TrainerAssistentenLehrgang-Teil2",
+        "from": "2023-01-20T23:00:00.000Z",
+        "to": "2023-01-21T23:00:00.000Z",
+        "details": "Hier findet Ihr die Ausschreibung!\n\n \n\nOrt: Dillingen",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/regionen/schwaben/oberdonau/2023/Ausschreibungen/Ausschreibung_Assistentenlehrgang_2023.pdf"
+        }
+    },
+    {
+        "place": "Heilsbronn",
+        "category": "",
+        "title": "Kinderturnworkshop des TG Ansbach",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/kinderturnworkshop%20tg%20ansbach",
+        "from": "2023-01-20T23:00:00.000Z",
+        "details": "Ausschreibung Kinderturnworkshop TG Ansbach",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/regionen/mittelfranken/Kinderturnworkshop%20TG%20Ansbach%20Ausschreibung.pdf"
+        }
+    },
+    {
+        "place": "Röfingen",
+        "category": "",
+        "title": "Bezirksturntag Schwaben mit Neuwahlen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/2023bezirksturntag",
+        "from": "2023-01-20T23:00:00.000Z",
+        "details": "Der Turnbezirk Schwaben veranstaltet am Samstag, den 21. Januar 2023, ab 13:30 Uhr seinen Bezirksturntag im Gasthof Zahler in Röfingen (Augsburger Straße 69). Auf der Tagesordnung stehen unter anderem der Bericht des Vorsitzenden sowie dem Kassenbericht und der Neuwahl des Bezirksvorstandes. Eingeladen sind alle Funktionäre des Turnbezirkes, die schwäbischen Turngauvorstände sowie die zum Bezirksturntag Delegierten.",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Rope Skipping",
+        "title": "Bayerischer Triple Under Cup",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/2085005-tu-cup",
+        "from": "2023-01-27T23:00:00.000Z",
+        "details": "Am 28.01.2023 findet in Isen der Bayerische Triple Under Cup im Rope Skipping statt. \n\nAusschreibung \n\nWegbeschreibung \n\nAnmeldung",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/rope_skipping/2085005_Triple%20Under%20Cup%20.pdf",
+            "Anmeldung": "https://events.dtb-gymnet.de/",
+            "Wegbeschreibung": "https://www.google.de/maps/place/Grund-+und+Mittelschule+Isen/@48.2105264,12.0571544,17z/data=!4m6!3m5!1s0x479e02fddb09c92b:0x40821dbb5ba33ac5!4b1!8m2!3d48.2105228!4d12.0593484"
+        }
+    },
+    {
+        "place": "",
+        "category": "Rope Skipping",
+        "title": "Bayerische Einzelmeisterschaft",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/2085001-bem",
+        "from": "2023-01-27T23:00:00.000Z",
+        "details": "Am 28.01.2023 finden in Isen die Bayerischen Einzelmeisterschaften im Rope Skipping statt.\n\nAusschreibung \n\nWegbeschreibung\n\nAnmeldung",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/rope_skipping/2085001_Bayerische%20Einzelmeisterschaft.pdf",
+            "Anmeldung": "https://events.dtb-gymnet.de/",
+            "Wegbeschreibung": "https://www.google.de/maps/place/Grund-+und+Mittelschule+Isen/@48.2105264,12.0571544,17z/data=!3m1!5s0x479e02fdd32fce77:0x7be7fad22a75ae3b!4m12!1m6!3m5!1s0x479e02fddb09c92b:0x40821dbb5ba33ac5!2sGrund-+und+Mittelschule+Isen!8m2!3d48.2105228!4d12.0593484!3m4!1s0x479e02fddb09c92b:0x40821dbb5ba33ac5!8m2!3d48.2105228!4d12.0593484"
+        }
+    },
+    {
+        "place": "",
+        "category": "Rope Skipping",
+        "title": "Bayerischer Double Under Cup",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/2085004-du-cup",
+        "from": "2023-01-27T23:00:00.000Z",
+        "details": "Am 28.01.2023 findet in Isen der Bayerische Double Under Cup im Rope Skipping statt. \n\nAusschreibung \n\nWegbeschreibung \n\nAnmeldung",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/rope_skipping/2085004_Double%20Under%20Cup.pdf",
+            "Anmeldung": "https://events.dtb-gymnet.de/",
+            "Wegbeschreibung": "https://www.google.de/maps/place/Grund-+und+Mittelschule+Isen/@48.2105264,12.0571544,17z/data=!4m6!3m5!1s0x479e02fddb09c92b:0x40821dbb5ba33ac5!4b1!8m2!3d48.2105228!4d12.0593484"
+        }
+    },
+    {
+        "place": "Gundelfingen",
+        "category": "",
+        "title": "Kampfrichterlehrgang GT WBL P-Übungen inkl. Prüfung D-Lizenz",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230204-Karilehrgang",
+        "from": "2023-02-03T23:00:00.000Z",
+        "to": "2023-02-04T23:00:00.000Z",
+        "details": "Hier findet Ihr die Ausschreibung!\n\n \n\nOrt: Gundelfingen",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/regionen/schwaben/oberdonau/2023/Ausschreibungen/20230204-Kari_D-Lizenz-weibl.pdf"
+        }
+    },
+    {
+        "place": "Wallerstein",
+        "category": "",
+        "title": "Turn10-Lehrgang",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230211-Turn10-Lehrgang",
+        "from": "2023-02-10T23:00:00.000Z",
+        "details": "Hier findet Ihr die Ausschreibung!\n\n \n\nOrt: Wallerstein",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/regionen/schwaben/oberdonau/2023/Ausschreibungen/20230211-Turn10-LGNr231003011018.pdf"
+        }
+    },
+    {
+        "place": "",
+        "category": "Trampolinturnen",
+        "title": "Bayerische Meisterschaften Doppelmini-Trampolinturnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/bm-dmt",
+        "from": "2023-02-11T23:00:00.000Z",
+        "details": "Am 12.02. finden die Bayerischen Meisterschaften im Doppelmini-Trampolinturnen statt.\n\nAusschreibung",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/trampolinturnen/wettkampf/2023/bm-dmt/Ausschreibung_DMT.pdf"
+        }
+    },
+    {
+        "place": "Heilsbronn",
+        "category": "",
+        "title": "Lehrgang - Langhanteltraining im Vereinssport",
+        "img": "https://oberfranken.btv-turnen.de/regionen/mittelfranken/image-thumb__3366__events_icon/langhanteltraining_Bild%201.jpg",
+        "link": "https://oberfranken.btv-turnen.de/events/lanhanteltraining%20lehrgang%20tg%20ansbach",
+        "from": "2023-02-17T23:00:00.000Z",
+        "details": "Wo: Heilsbronn\n\nAuschreibung Langhanteltraining",
+        "docs": {}
+    },
+    {
+        "place": "Kempten",
+        "category": "",
+        "title": "KaRi-Lehrgang Gerätturnen weiblich in Kempten",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230218_kari-lehrgang-weiblich_kempten",
+        "from": "2023-02-17T23:00:00.000Z",
+        "to": "2023-02-18T23:00:00.000Z",
+        "details": "Kampfrichterlehrgang Gerätturnen weiblich P-Übungen inklusive Prüfung zur D-Lizenz\n\nOrt: voraussichtlich Staatliche Realschule, Salzstraße 17, 87435 Kempten\n\nAusschreibung (PDF) (Meldeschluss: 05.02.2023)",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/regionen/schwaben/allgaeu/ug1/dokumente/2023/ug1-2023-kari-lehrgang-weiblich.pdf"
+        }
+    },
+    {
+        "place": "Bäumenheim",
+        "category": "",
+        "title": "Kinderturnlehrgang P1-P5",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230225-Kinderturnlehrgang",
+        "from": "2023-02-24T23:00:00.000Z",
+        "details": "Hier finden Sie die Ausschreibung!\n\n \n\nOrt: Bäumenheim",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/regionen/schwaben/oberdonau/2023/Ausschreibungen/20230225-Kinderturnlehrgang.pdf"
+        }
+    },
+    {
+        "place": "Hofstetten",
+        "category": "Seniorensport",
+        "title": "BTV Kursleiter Sport für Senioren - Teil 1",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/btv-tg-msp-kursleiter-sport-fuer-senioren-teil-1",
+        "from": "2023-02-24T23:00:00.000Z",
+        "to": "2023-02-25T23:00:00.000Z",
+        "details": "Lg.-Nr.: 3102002\n\nin Hofstetten\n\nAnmeldung direkt beim BTV und nicht über die Turngau Geschäffsstelle",
+        "docs": {}
+    },
+    {
+        "place": "Miltenberg",
+        "category": "",
+        "title": "Gerätturnen weiblich: 1. Rundenwettkampf im Turnkreis MIL",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230304-gtw-kreis-mil-ruwe-1",
+        "from": "2023-03-03T23:00:00.000Z",
+        "details": "Der erste Rundenwettkampf im Turnkreis Miltenberg findet am 4.3.2023 in der Churfrankenhalle in Miltenberg statt",
+        "docs": {}
+    },
+    {
+        "place": "Wörth",
+        "category": "",
+        "title": "Yoga Workshop für Einsteiger",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230304-yoga-workshop-fuer-einsteiger",
+        "from": "2023-03-03T23:00:00.000Z",
+        "details": "LG-Nr.: 23 750 308 2001 \n\nin Wörth am Main",
+        "docs": {}
+    },
+    {
+        "place": "Laufach",
+        "category": "Natur- und Outdoorsport",
+        "title": "Winterwanderung Rund um Laufach",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230305-winterwanderung-rund-um-laufach",
+        "from": "2023-03-04T23:00:00.000Z",
+        "details": "in Laufach",
+        "docs": {}
+    },
+    {
+        "place": "Feuchtwangen",
+        "category": "",
+        "title": "Gym Cup - Mannschaftswettkampf TG Ansbach in  Feuchtwangen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/gym%20cup%20mannschaftswettkampf%20tg%20ansbach",
+        "from": "2023-03-10T23:00:00.000Z",
+        "details": "",
+        "docs": {}
+    },
+    {
+        "place": "Durach",
+        "category": "",
+        "title": "Einzel-Gerätturn-Wettkampf in Durach",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230312_einzel-geraetturn-wettkampf_durach",
+        "from": "2023-03-11T23:00:00.000Z",
+        "details": "Einzel-Gerätturn-Wettkampf weiblich + männlich\n\nOrt: Durach",
+        "docs": {}
+    },
+    {
+        "place": "Wertingen",
+        "category": "",
+        "title": "Gauliga Schüler C, männliche Jugend, Turner",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231013-Gauliga-Sch%C3%BClerC-Jugend-Turner",
+        "from": "2023-10-12T22:00:00.000Z",
+        "details": "Die Ausschreibung und alle weiteren Informationen werden zu gegebener Zeit veröffentlicht!\n\n \n\nOrt: Wertingen",
+        "docs": {}
+    },
+    {
+        "place": "Schweinfurt",
+        "category": "",
+        "title": "Turn10® Jahrgangsmeisterschaften",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230318-19-tgswhas-t10jgm",
+        "from": "2023-03-17T23:00:00.000Z",
+        "to": "2023-03-18T23:00:00.000Z",
+        "details": "Paul-Gerhardt-Str. 2\n97421 Schweinfurt\n\nGeorg-Wichtermann-Halle",
+        "docs": {}
+    },
+    {
+        "place": "Bad Abbach",
+        "category": "Trampolinturnen",
+        "title": "Bayern-Cup Trampolinturnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/bayerncup",
+        "from": "2023-03-17T23:00:00.000Z",
+        "details": "Am 18.03.2023 findet der Bayern-Cup im Trampolinturnen in Bad Abbach statt.\n\nAusschreibung",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/trampolinturnen/wettkampf/2023/bayerncup/Ausschreibung_Bayern-Cup.pdf"
+        }
+    },
+    {
+        "place": "Großostheim",
+        "category": "",
+        "title": "Gauliga männlich: 1. Rundenwettkampf im Turngau Main-Spessart",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230318-gtm-ruwe-1-maenner",
+        "from": "2023-03-17T23:00:00.000Z",
+        "details": "Der erste Rundenwettkampf in der Gauliga männlich findet am 18.03.2023 beim TV Großostheim statt.",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Rope Skipping",
+        "title": "Deutsche Einzelmeisterschaft",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/dem",
+        "from": "2023-03-17T23:00:00.000Z",
+        "details": "Am 18. März 2023 findet die Deutsche Einzelmeisterschaft im Rope-Skipping in Idar-Oberstein statt.",
+        "docs": {}
+    },
+    {
+        "place": "Wertingen",
+        "category": "",
+        "title": "Gauliga Schülerinnen C, weibliche Jugend, Turnerinnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231014-Gauliga-Sch%C3%BClerinnenC-Jugend-Turnerinnen",
+        "from": "2023-10-13T22:00:00.000Z",
+        "details": "Die Ausschreibung und alle weiteren Informationen werden zu gegebener Zeit veröffentlicht!\n\n \n\nOrt: Wertingen",
+        "docs": {}
+    },
+    {
+        "place": "Friedberg",
+        "category": "Gymnastik & Tanz",
+        "title": "BayernCup Gymnastik K(ür)-Einzel mit Quali zum Regio-Cup Süd",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/230318-bayerncup-gymnastik-k-einzel",
+        "from": "2023-03-17T23:00:00.000Z",
+        "details": "Der BayernCup Gymnastik K(ür)-Einzel mit Quali zum Regio-Cup Süd findet am 18.03.2023 in Friedberg statt.\n\nDer Regio-Cup Süd wird am 06./07.05.2023 ausgetragen - Ausrichter ist der Badischer Turner-Bund.",
+        "docs": {}
+    },
+    {
+        "place": "Großostheim",
+        "category": "",
+        "title": "Gauliga Schüler: 1. Rundenwettkampf im Turngau Main-Spessart",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230319-gtm-ruwe-1-schueler",
+        "from": "2023-03-18T23:00:00.000Z",
+        "details": "Der erste Rundenwettkampf in der Gauliga Schüler (männlich) findet am 19.03.2023 beim TV Großostheim statt.",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Trampolinturnen",
+        "title": "Deutsche Meisterschaft und Deutschland-Cup Doppel-Mini Trampolinturnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/dm-und-d-cup-doppel-mini",
+        "from": "2023-03-23T23:00:00.000Z",
+        "to": "2023-03-25T23:00:00.000Z",
+        "details": "Vom 24. März bis zum 26. März 2023 finden die Deutschen Meisterschaften und der Deutschland-Cup im Doppel-Mini Tramoplinturnen in Grasdorf statt.",
+        "docs": {}
+    },
+    {
+        "place": "Lauingen",
+        "category": "",
+        "title": "Gauliga Schülerinnen E und D",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231021-Gauliga-Sch%C3%BClerinnenED",
+        "from": "2023-10-20T22:00:00.000Z",
+        "details": "Die Ausschreibung und alle weiteren Informationen werden zu gegebener Zeit veröffentlicht!\n\n \n\nOrt: Lauingen",
+        "docs": {}
+    },
+    {
+        "place": "N.N.",
+        "category": "Gerätturnen",
+        "title": "BayernCup Gerätturnen weiblich LK 1/LK 2",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230325-bayerncup-lk1-lk2",
+        "from": "2023-03-24T23:00:00.000Z",
+        "details": "Der BayernCup Gerätturnen weiblich LK 1 und LK 2 (nur AK 10/11) findet am 25.03.2023 statt. Interessierte Vereine können sich ab sofort gerne als Ausrichter melden (per E-Mail an: maren.genn@btv-turnen.de)\n\nDer BayernCup LK 1 und LK 2 der älteren Altersklassen wird im Rahmen des Bayerischen Landesturnfestes am 29.04.2023 in Regensburg ausgetragen.\n\nAusschreibung (folgt)\n\nWegbeschreibung (folgt)",
+        "docs": {}
+    },
+    {
+        "place": "N.N.",
+        "category": "Gerätturnen",
+        "title": "Bayerische Seniorenmeisterschaften Gerätturnen weiblich",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230325-bayerische-seniorenmeisterschaften-weiblich",
+        "from": "2023-03-24T23:00:00.000Z",
+        "details": "Die Bayerischen Seniorenmeisterschaften Gerätturnen weiblich finden am 25.03.2023 statt. Interessierte Vereine können sich gerne als Ausrichter melden (per E-Mail an maren.genn@btv-turnen.de)\n\nAusschreibung (folgt)\n\nWegbeschreibung (folgt)",
+        "docs": {}
+    },
+    {
+        "place": "Hofstetten",
+        "category": "Seniorensport",
+        "title": "BTV Kursleiter Sport für Senioren - Teil 2",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/btv-tg-msp-kursleiter-sport-fuer-senioren-teil-2",
+        "from": "2023-03-24T23:00:00.000Z",
+        "to": "2023-03-25T23:00:00.000Z",
+        "details": "Lg.-Nr.: 3102002\n\nin Hofstetten\n\nAnmeldung direkt beim BTV und nicht über die Turngau Geschäftsstelle",
+        "docs": {}
+    },
+    {
+        "place": "Hörstein",
+        "category": "Gymnastik & Tanz",
+        "title": "BayernCup K-Gruppe und DTB-Dance",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/230326-bayerncup-k-gruppe-und-dtb-dance",
+        "from": "2023-03-25T23:00:00.000Z",
+        "details": "Der BayernCup K-Gruppe und der BayernCup DTB-Dance finden gemeinsam am 26.03.2023 in Hörstein statt.\n\nAusschreibung (folgt)",
+        "docs": {}
+    },
+    {
+        "place": "Lauingen",
+        "category": "",
+        "title": "Gauliga Schüler E und D",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231022-Gauliga-Sch%C3%BClerED",
+        "from": "2023-10-21T22:00:00.000Z",
+        "details": "Die Ausschreibung und alle weiteren Informationen werden zu gegebener Zeit veröffentlicht!\n\n \n\nOrt: Lauingen",
+        "docs": {}
+    },
+    {
+        "place": "Niedernberg",
+        "category": "Natur- und Outdoorsport",
+        "title": "Wanderbesprechung TG MSP",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230402-wanderbesprechung",
+        "from": "2023-04-01T22:00:00.000Z",
+        "details": "im Cafe Reinhard in Niedernberg",
+        "docs": {}
+    },
+    {
+        "place": "Hasloch",
+        "category": "Kinderturnen",
+        "title": "Lehrgang Kinderturnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230415-lehrgang-kinderturnen",
+        "from": "2023-04-14T22:00:00.000Z",
+        "details": "LG-Nr.: 23 750 309 2002\n\nin Hasloch am Main",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Gerätturnen männlich olympisch",
+        "title": "Nachwuchsbundesliga 2023 1. Wettkampftag",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/nachwuchsbundesliga-1",
+        "from": "2023-04-21T22:00:00.000Z",
+        "details": "Am 22. April 2023 findet der erste Wettkampftag der Nachwuchsbundesliga statt.",
+        "docs": {}
+    },
+    {
+        "place": "Karlstein",
+        "category": "Gymnastik & Tanz",
+        "title": "Lehrgang Rhythm & Dance",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230422-lehrgang-rhythm-&-dance",
+        "from": "2023-04-21T22:00:00.000Z",
+        "details": "LG-Nr.: 23 750 308 2003\n\n \n\nin Karlstein am Main",
+        "docs": {}
+    },
+    {
+        "place": "Blossenau",
+        "category": "",
+        "title": "Frühjahrslehrgang \"Fit in den Frühling\"",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230422-Fr%C3%BChjahrslehrgang",
+        "from": "2023-04-21T22:00:00.000Z",
+        "details": "Hier findet Ihr die Ausschreibung!\n\n \n\nOrt: Blossenau",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/regionen/schwaben/oberdonau/2023/Ausschreibungen/20230422-Fr%C3%BChjahrslehrgang%202023_Fit%20in%20den%20Fr%C3%BChling_final.pdf"
+        }
+    },
+    {
+        "place": "Regensburg",
+        "category": "",
+        "title": "Spot auf den Turnsport",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/landesturnfest",
+        "from": "2023-04-26T22:00:00.000Z",
+        "to": "2023-04-30T22:00:00.000Z",
+        "details": "2023 startet das Großevent des Breitensports: Vom 27. April bis zum 1.Mai findet in Regensburg das 33. Bayerische Landesturnfest statt. Der BTV erwartet 10000 Aktive und bis zu 90000 Zuschauer. Für uns Niederbayern ist das ein Großevent fast vor der Haustüre. 30 unterschiedliche Sportarten entfalten die ganze Breite des Turnsports, der weit über das klassische Geräteturnen hinausgeht: Mit dabei sind z.B. Orientierungslauf, Rhönrad, Trampolin Sportakrobatik und sogar Dance oder Stacking. Show, Fitness, Wellness und Party verwandeln die altehrwürdige Römerstadt in einen Hotspot des Turnsports.\n\nNun sind es schon weniger 365 Tage bis zum Startschuss.\n\nVolunteers: Mittendrin und live dabei: Das #turnfest23-Team sucht gerade unter den wackeren Niederbayern helfende Hände in allen Bereichen: Spezialisten oder Allrounder – alle werden gebraucht. Dafür seid ihr in den ersten Reihen mit dabei. Schon bald erfolgt die Ausschreibung. Ab diesem Zeitpunkt kann man sich als Volunteer melden. Laufend aktuelle Infos auf der Homepage https://www.turnfest23.de/ oder unter der E-Mail-Adresse turnfest@btv-turnen.de",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "TeamGym",
+        "title": "Bayerische Meisterschaft am Landesturnfest",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/bm-am-ltf",
+        "from": "2023-04-29T22:00:00.000Z",
+        "details": "Am 30. April 2023 finden die Bayerischen Meisterschaften im Team Gym am Landesturnfest statt.\n\nAusschreibung \n\nWegbeschreibung",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Rope Skipping",
+        "title": "Deutsche Teammeisterschaft",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/dtm",
+        "from": "2023-04-29T22:00:00.000Z",
+        "details": "Am 30. April 2023 findet die Deutsche Teammeisterschaft im Rope-Skipping in Lüneburg statt.",
+        "docs": {}
+    },
+    {
+        "place": "Regensburg",
+        "category": "Show & Vorführung",
+        "title": "5. BTV-ShowTag",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/230430-showtag",
+        "from": "2023-04-29T22:00:00.000Z",
+        "details": "Der 5. BTV-ShowTag wird im Rahmen des Bayerischen Landesturnfest in Regensburg stattfinden.",
+        "docs": {}
+    },
+    {
+        "place": "Schweinfurt",
+        "category": "",
+        "title": "Turn10® Mannschaftswettkampf vr",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230506-07-tgswhas-t10bp",
+        "from": "2023-05-05T22:00:00.000Z",
+        "to": "2023-05-06T22:00:00.000Z",
+        "details": "Paul-Gerhardt-Str. 2\n97421 Schweinfurt\n\nGeorg-Wichtermann-Halle",
+        "docs": {}
+    },
+    {
+        "place": "Lauingen",
+        "category": "",
+        "title": "Gaukinderturnfest",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230506-Gaukinderturnfest",
+        "from": "2023-05-05T22:00:00.000Z",
+        "to": "2023-05-06T22:00:00.000Z",
+        "details": "Die Ausschreibung und alle weiteren Informationen werden zu gegebener Zeit veröffentlicht!\n\n \n\nOrt: Lauingen",
+        "docs": {}
+    },
+    {
+        "place": "Wörth",
+        "category": "",
+        "title": "Mind Body Workshop",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230506-lehrgang-mind-body-workshop",
+        "from": "2023-05-05T22:00:00.000Z",
+        "details": "LG-Nr. 23 750 308 2004\n\nin Wörth am Main",
+        "docs": {}
+    },
+    {
+        "place": "Michelbach",
+        "category": "",
+        "title": "Gerätturnen weiblich: 1. Rundenwettkampf im Turnkreis ALZ",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230507-gtw-kreis-alz-ruwe-1",
+        "from": "2023-05-06T22:00:00.000Z",
+        "details": "Der erste Rundenwettkampf im Turnkreis Alzenau findet am 07.05.2023 beim TV Michelbach statt.",
+        "docs": {}
+    },
+    {
+        "place": "Blaichach",
+        "category": "",
+        "title": "Mannschafts-Gerätturn-Wettkampf in Blaichach",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230507_mannschafts-geraetturn-wettkampf_blaichach",
+        "from": "2023-05-06T22:00:00.000Z",
+        "details": "Mannschafts-Gerätturn-Wettkampf weiblich + männlich\n\nOrt: Blaichach",
+        "docs": {}
+    },
+    {
+        "place": "Michelbach",
+        "category": "",
+        "title": "1. Rundenwettkampf im Gerätturnen weiblich (ALZ) im Turngau Main-Spessart",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230507-gtw-alz-rundenwettkampf-1",
+        "from": "2023-05-06T22:00:00.000Z",
+        "details": "Der erste Rundenwettkampf der Gerätturnerinnen vom Kreis Alzenau findet am 7. Mai 2023 in der Schulturnhalle von Michelbach statt.",
+        "docs": {}
+    },
+    {
+        "place": "Windsheim",
+        "category": "",
+        "title": "Gaueinzelmeisterschaften Gerätturnen des TG Ansbach in Windsheim",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/gaueinzelmeisterschaften%20tg%20ansbach%202023",
+        "from": "2023-05-12T22:00:00.000Z",
+        "details": "",
+        "docs": {}
+    },
+    {
+        "place": "Bürgstadt",
+        "category": "",
+        "title": "Gaufrühjahrsturnfest im Turngau Main-Spessart",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230513-gaufruehjahrtsturnfest",
+        "from": "2023-05-12T22:00:00.000Z",
+        "details": "Am 13.5.2023 findet beim TV Bürgstadt das Gaufrühjahrsturnfest in den turnerischen Mehrkämpfen statt.\n\nWann:                     13.05.2023\n\nWo:                          Sportgelände des TV Bürgstadt\n\nMeldeschluss:         13:30 Uhr\n\nWettkampfbeginn: 14:00 Uhr\n\nStartgeld:                5.- Euro (muss auf das Konto des Turngaus überwiesen werden)",
+        "docs": {}
+    },
+    {
+        "place": "Laufach",
+        "category": "Natur- und Outdoorsport",
+        "title": "Gauwandertag im Turngau Main-Spessart",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230518-gauwandertag",
+        "from": "2023-05-17T22:00:00.000Z",
+        "details": "in Laufach",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Gerätturnen männlich olympisch",
+        "title": "Nachwuchsbundesliga 2023 2.Wettkampftag",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/nachwuchsbundesliga-2",
+        "from": "2023-05-19T22:00:00.000Z",
+        "details": "Am 20. Mai 2023 findet der 2. Wettkampftag der Nachwuchsbundesliga statt.",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Aerobicturnen",
+        "title": "Deutsche Meisterschaft und Jugendmeisterschaft",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/dm-und-djm",
+        "from": "2023-06-08T22:00:00.000Z",
+        "to": "2023-06-10T22:00:00.000Z",
+        "details": "Vom 09. Juni 2023 bis zum 11. Juni 2023 finden die Deutschen Meisterschaften und Jugendmeisterschaften im Aerobicturnen in Wolfenbüttel statt.",
+        "docs": {}
+    },
+    {
+        "place": "Aschaffenburg",
+        "category": "",
+        "title": "Lehrgang PilaToes",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230617-lehrgang-pila-toes",
+        "from": "2023-06-16T22:00:00.000Z",
+        "details": "LG-Nr.: 23 750 308 2005\n\nin Aschaffenburg",
+        "docs": {}
+    },
+    {
+        "place": "Schweinfurt",
+        "category": "",
+        "title": "Gauturnfest",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230624-25-tgswhas-gauturnfest",
+        "from": "2023-06-23T22:00:00.000Z",
+        "to": "2023-06-24T22:00:00.000Z",
+        "details": "Turngemeinde Schweinfurt 1848\nLindenbrunnenweg 51\n97422 Schweinfurt",
+        "docs": {}
+    },
+    {
+        "place": "Waging am See",
+        "category": "Gerätturnen",
+        "title": "1. Wettkampftag Bayerische Turnliga weiblich",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230624-1-wettkampftag-btl-weiblich",
+        "from": "2023-06-23T22:00:00.000Z",
+        "to": "2023-06-24T22:00:00.000Z",
+        "details": "Der 1. Wettkampftag der Bayerischen Turnliga weiblich findet am 24./25.06.2023 in Waging am See statt.",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Rhönradturnen",
+        "title": "Deutsche Jugendmeisterschaft",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/djm",
+        "from": "2023-06-23T22:00:00.000Z",
+        "to": "2023-06-24T22:00:00.000Z",
+        "details": "Vom 24. Juni bis zum 25. Juni 2023 findet die Deutsche Jugendmeisterschaft im Rhönradturnen statt.",
+        "docs": {}
+    },
+    {
+        "place": "Haibach",
+        "category": "",
+        "title": "Gerätturnen weiblich: 2. Rundenwettkampf im Turnkreis MIL",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230624-gtw-kreis-mil-ruwe-2",
+        "from": "2023-06-23T22:00:00.000Z",
+        "details": "Der zweite Rundenwettkampf im Turnkreis Miltenberg findet am 24.6.2023 in Haibach statt. Ausrichter ist der TSV Grünmorsbach.",
+        "docs": {}
+    },
+    {
+        "place": "Sulzberg",
+        "category": "",
+        "title": "18. KGW-Treff im Allgäu in Sulzberg",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230624_18-kgw-treff-im-allgaeu_sulzberg",
+        "from": "2023-06-23T22:00:00.000Z",
+        "details": "Ort: Sporthalle Sulzberg\n\nAusschreibung mit Meldeformular (PDF) (Meldeschluss Vormeldung: 19.04.2023)",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/regionen/schwaben/allgaeu/ug1/dokumente/2023/ug1-2023-18-kwg-treff-im-allgaeu.pdf"
+        }
+    },
+    {
+        "place": "Gundelfingen",
+        "category": "",
+        "title": "Gauliga Schüler C, männliche Jugend, Turner",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230630-Gauliga-Sch%C3%BClerC-Jugend-Turner"
+    },
+    {
+        "place": "Gundelfingen",
+        "category": "",
+        "title": "Gauliga Schülerinnen C, weibliche Jugend, Turnerinnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230701-Gauliga-Sch%C3%BClerinnenC-Jugend-Turnerinnen"
+    },
+    {
+        "place": "Kahl am Main",
+        "category": "",
+        "title": "Gerätturnen weiblich: 2. Rundenwettkampf im Turnkreis ALZ",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230701-gtw-kreis-alz-ruwe-2",
+        "from": "2023-06-30T22:00:00.000Z",
+        "details": "Der zweite Rundenwettkampf im Turnkreis Alzenau findet am 01.07.2023 beim TV Kahl statt.",
+        "docs": {}
+    },
+    {
+        "place": "Kahl am Main",
+        "category": "",
+        "title": "2. Rundenwettkampf im Gerätturnen weiblich (ALZ) im Turngau Main-Spessart",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230701-gtw-alz-rundenwettkampf-2",
+        "from": "2023-06-30T22:00:00.000Z",
+        "details": "Der zweite Rundenwettkampf der Gerätturnerinnen vom Kreis Alzenau findet am 1. Juli 2023 in der Waldseehalle von Kahl am Main statt.",
+        "docs": {}
+    },
+    {
+        "place": "Bachgau",
+        "category": "",
+        "title": "Lehrgang Nordic Walking",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230708-lehrgang-nordic-walking",
+        "from": "2023-07-07T22:00:00.000Z",
+        "details": "LG-Nr.: 23 750 311 2006\n\nim Bachgau",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "",
+        "title": "Pokalturnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230708-tgswhas-pt",
+        "from": "2023-07-07T22:00:00.000Z",
+        "details": "Gymnasiumstr.\n96106 Ebern",
+        "docs": {}
+    },
+    {
+        "place": "Wittislingen",
+        "category": "",
+        "title": "Gauliga Schülerinnen E und D",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230708-Gauliga-Sch%C3%BClerinnenED"
+    },
+    {
+        "place": "Hasloch am Main",
+        "category": "Kinderturnen",
+        "title": "Gaukinderturnfest im Turngau Main-Spessart",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230709-gaukinderturnfest",
+        "from": "2023-07-08T22:00:00.000Z",
+        "details": "Der TV Hasloch wird am 9.7.2023 das Gaukinderturnfest ausrichten. Im Bereich \"Turnen\" (m/w) wird der \"Spessarträuber Pokal\" ausgetragen.",
+        "docs": {}
+    },
+    {
+        "place": "Wittislingen",
+        "category": "",
+        "title": "Gauliga Schüler E und D",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230709-Gauliga-Sch%C3%BClerED"
+    },
+    {
+        "place": "N.N.",
+        "category": "Gerätturnen",
+        "title": "2. Wettkampftag Bayerische Turnliga weiblich",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230715-2-wettkampftag-btl-weiblich",
+        "from": "2023-07-14T22:00:00.000Z",
+        "to": "2023-07-15T22:00:00.000Z",
+        "details": "Der 2. Wettkampftag der Bayerischen Turnliga weiblich findet am 15./16.07.2023 statt.",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "",
+        "title": "Turnschau",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230715-turnschau-tg48sw",
+        "from": "2023-07-14T22:00:00.000Z",
+        "details": "TG 48 Schweinfurt\nLindenbrunnenweg 51\n97422 Schweinfurt",
+        "docs": {}
+    },
+    {
+        "place": "Amsterdam",
+        "category": "Show & Vorführung",
+        "title": "Welt-Gymnaestrada",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/230730-weltgymnaestrada",
+        "from": "2023-07-29T22:00:00.000Z",
+        "to": "2023-08-04T22:00:00.000Z",
+        "details": "Eine Woche voll mit Vorführungen, Shows, Gala-Abenden und internationalen Begegnungen unter dem Motto \"Turnen für Alle\" - das ist die Welt-Gymnaestrada. Die größte, nicht-kompetitive Breitensport-Veranstaltung der Welt.\nMit rund 20.000 Teilnehmer*innen aus über 50 Nationen begeistert sie nicht nur alle vier Jahre das Publikum, sondern steht auch für internationale und interkulturelle Begegnungen, Austausch und Freundschaften durch die gemeinsame Leidenschaft zum Turnen. Auch 2023 findet sie wieder statt und bietet allen Turnbegeisterten, ungeachtet von Alter, Geschlecht, Religion, Talent oder sozialem Status, die Möglichkeit teilzunehmen und Teil dieser besonderen Woche des Turnsports zu werden.\n\nDie Anmeldung und Organisation erfolgt über den Deutschen Turner-Bund. Weitere Informationen befinden sich hier.",
+        "docs": {}
+    },
+    {
+        "place": "Großostheim",
+        "category": "",
+        "title": "Jahresbesprechung 2023 Gerätturnen männlich im Turngau Main-Spessart",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20230913-jahresbesprechung-geraetturnen-m",
+        "from": "2023-09-12T22:00:00.000Z",
+        "details": "Eingeladen sind alle Vertreter von Vereinen, bei den Gerätturnen männlich angeboten wird.\n\nWann: 13.09.2023    19:00 Uhr\n\nWo:     Großostheim",
+        "docs": {}
+    },
+    {
+        "place": "Harburg",
+        "category": "",
+        "title": "Seniorenlehrgang Sport für Ältere",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20230923-Seniorenlehrgang",
+        "from": "2023-09-22T22:00:00.000Z",
+        "details": "Die Ausschreibung und alle weiteren Informationen werden zu gegebener Zeit veröffentlicht!\n\n \n\nOrt: Harburg",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Trampolinturnen",
+        "title": "Deutsche Jugendmeisterschaft und Deutsche Synchronmeisterschaft im Trampolinturnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/djm-und-dm-synchron",
+        "from": "2023-09-29T22:00:00.000Z",
+        "to": "2023-09-30T22:00:00.000Z",
+        "details": "Vom 30. September bis zum 01. Oktober 2023 finden die Deutschen Jugendmeisterschaften und die Deutschen Synchronmeisterschaften im Trampolinturnen statt.",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Rhönradturnen",
+        "title": "30. Süddeutsche Meisterschaft (AK 19+)",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/sdm",
+        "from": "2023-09-29T22:00:00.000Z",
+        "to": "2023-09-30T22:00:00.000Z",
+        "details": "Die 30. Süddeutsche Meisterschaft der AK 19+ im Rhönradturnen findet vom 30. September bis zum 01. Oktober 2023 statt.",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Rhönradturnen",
+        "title": "29. Süddeutsche Vereins-Mannschafts-Meisterschaft",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/sdvmm",
+        "from": "2023-09-29T22:00:00.000Z",
+        "to": "2023-09-30T22:00:00.000Z",
+        "details": "Die 29. Süddeutsche Vereins-Mannschafts-Meisterschaft im Rhönradturnen findet vom 30. September bis zum 01. Oktober 2023 statt.",
+        "docs": {}
+    },
+    {
+        "place": "N.N.",
+        "category": "Gerätturnen",
+        "title": "BayernCup Gerätturnen weiblich LK 3",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231001-bayerncup-lk3",
+        "from": "2023-09-30T22:00:00.000Z",
+        "details": "Der BayernCup Gerätturnen weiblich LK 3 findet am 01.10.2023 statt. \n\nAusschreibung (folgt)\n\nWegbeschreibung (folgt)",
+        "docs": {}
+    },
+    {
+        "place": "N.N.",
+        "category": "Gerätturnen",
+        "title": "3. Wettkampftag Bayerische Turnliga weiblich",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231007-3-wettkampftag-btl-weiblich",
+        "from": "2023-10-06T22:00:00.000Z",
+        "to": "2023-10-07T22:00:00.000Z",
+        "details": "Der 3. Wettkampftag der Bayerischen Turnliga weiblich findet am 07./08.10.2023 statt.",
+        "docs": {}
+    },
+    {
+        "place": "Dillingen",
+        "category": "",
+        "title": "Breitensport-Aktionstage",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231007-Aktionstage",
+        "from": "2023-10-06T22:00:00.000Z",
+        "to": "2023-10-07T22:00:00.000Z",
+        "details": "Die Ausschreibung und alle weiteren Informationen werden zu gegebener Zeit veröffentlicht!\n\n \n\nOrt: Dillingen",
+        "docs": {}
+    },
+    {
+        "place": "Wertingen",
+        "category": "",
+        "title": "Gauliga Schüler C, männliche Jugend, Turner",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231013-Gauliga-Sch%C3%BClerC-Jugend-Turner"
+    },
+    {
+        "place": "Karlstein",
+        "category": "Gesundheits- und Präventionssport",
+        "title": "Lehrgang Ausdauertraining für ältere TN / mit Atemnot und Post Covid",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20231014-lehrgang-ausdauertraining-fuer-aeltere-mit-atemnot-und-post-covid",
+        "from": "2023-10-13T22:00:00.000Z",
+        "details": "LG-Nr.: 23 750 308 2007\n\nin Karlstein am Main",
+        "docs": {}
+    },
+    {
+        "place": "Wertingen",
+        "category": "",
+        "title": "Gauliga Schülerinnen C, weibliche Jugend, Turnerinnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231014-Gauliga-Sch%C3%BClerinnenC-Jugend-Turnerinnen"
+    },
+    {
+        "place": "Schweinfurt",
+        "category": "",
+        "title": "Turn10® Einzelwettkampf",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231014-15-tgswhas-t10bp-rr",
+        "from": "2023-10-13T22:00:00.000Z",
+        "to": "2023-10-14T22:00:00.000Z",
+        "details": "Paul-Gerhardt-Str. 2\n97421 Schweinfurt\n\nGeorg-Wichtermann-Halle",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Rhönradturnen",
+        "title": "Deutsche Meisterschaft (AK 19+)",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/dm",
+        "from": "2023-10-13T22:00:00.000Z",
+        "details": "Am 14. Oktober 2023 findet die Deutsche Meisterschaft im Rhönradturnen der AK 19+ statt.",
+        "docs": {}
+    },
+    {
+        "place": "Wörth",
+        "category": "Kinderturnen",
+        "title": "BTV Lehrgang Kinderturnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/btv-tg-msp-lehrgang-kitu",
+        "from": "2023-10-13T22:00:00.000Z",
+        "details": "Lg.-Nr.: nn\n\nin Wörth am Main\n\nAnmeldung direkt beim BTV und nicht über die Turngau Geschäftsstelle",
+        "docs": {}
+    },
+    {
+        "place": "nn",
+        "category": "Natur- und Outdoorsport",
+        "title": "Winterwanderung im Turngau Main-Spessart",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20231015-winterwanderung",
+        "from": "2023-10-14T22:00:00.000Z",
+        "details": "Ort noch offen",
+        "docs": {}
+    },
+    {
+        "place": "Karlstein",
+        "category": "Gesundheits- und Präventionssport",
+        "title": "Lehrgang Gesundheitssport Kombi",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20231015-lehrgang-gesundheitssport-kombi",
+        "from": "2023-10-14T22:00:00.000Z",
+        "details": "LG-Nr.: 23 750 308 2008\n\nin Karlstein am Main",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Gerätturnen männlich olympisch",
+        "title": "Nachwuchsbundesliga 2023 3. Wettkampftag",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/nachwuchsbundesliga-3",
+        "from": "2023-10-20T22:00:00.000Z",
+        "details": "Am 21. Oktober 2023 findet der 3. Wettkampftag der Nachwuchsbundesliga statt.",
+        "docs": {}
+    },
+    {
+        "place": "Lauingen",
+        "category": "",
+        "title": "Gauliga Schülerinnen E und D",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231021-Gauliga-Sch%C3%BClerinnenED"
+    },
+    {
+        "place": "",
+        "category": "TeamGym",
+        "title": "Landeskaderwettkampf 2023",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/landeskaderwettkampf",
+        "from": "2023-10-20T22:00:00.000Z",
+        "to": "2023-10-21T22:00:00.000Z",
+        "details": "Vom 21. Oktober bis zum 22. Oktober 2023 findet der Landeskaderwettkampf im Team Gym statt.",
+        "docs": {}
+    },
+    {
+        "place": "Kempten",
+        "category": "",
+        "title": "Gauentscheid \"Turnen im Verein\" in Kempten",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231022_gauentscheid-turnen-im-verein_kempten",
+        "from": "2023-10-21T22:00:00.000Z",
+        "details": "Gauentscheid \"Turnen im Verein\" mit Mannschaftswettkampf nach U1-Ausschreibung\n\nOrt: 3-fach Turnhalle, Westendstraße, Kempten\n\nAusschreibung (Meldeschluss: 11.10.2023)",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/regionen/schwaben/allgaeu/ug1/dokumente/2023/ug1-2023-gauentscheid.pdf"
+        }
+    },
+    {
+        "place": "Lauingen",
+        "category": "",
+        "title": "Gauliga Schüler E und D",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231022-Gauliga-Sch%C3%BClerED"
+    },
+    {
+        "place": "Laungen",
+        "category": "",
+        "title": "Turn10-Wettkampf",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231022-Turn10-Wettkampf",
+        "from": "2023-10-21T22:00:00.000Z",
+        "details": "Die Ausschreibung und alle weiteren Informationen werden zu gegebener Zeit veröffentlicht!\n\nDer Wettkampf findet am Nachmittag statt!\n\nOrt: Lauingen",
+        "docs": {}
+    },
+    {
+        "place": "Utting a. Ammersee",
+        "category": "Wettkampfsport",
+        "title": "Aufbaumodul Trainer C Breitensport Allround LG. Nr. 23 210 713 1001",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/23-10-28%20Aufbaumodul%20Trainer%20C%20Breitensport",
+        "from": "2023-10-27T22:00:00.000Z",
+        "to": "2023-11-11T23:00:00.000Z",
+        "details": "23-10-28 Ausschreibung Aufbaumodul Trainer C.pdf\n\n23-10-28 Anmeldeformular Aufbaumodul 28-10-2023 und AGB.pdf",
+        "docs": {
+            "Ausschreibung": "https://oberfranken.btv-turnen.de/sport/regionen_hier_nicht/oberbayern/ausschreibungen/2023/23-10-28%20Ausschreibung%20Aufbaumodul%20Trainer%20C.pdf"
+        }
+    },
+    {
+        "place": "Alzenau",
+        "category": "",
+        "title": "Trainerassistenten Ausbildung Teil 1",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20231111-trainerassistent-teil-1",
+        "from": "2023-11-10T23:00:00.000Z",
+        "to": "2023-11-11T23:00:00.000Z",
+        "details": "LG-Nr.: 23 750 403 1010\n\nvorraussichtlich in Alzenau",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Trampolinturnen",
+        "title": "Deutschland-Cup Trampolinturnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/d-cup",
+        "from": "2023-11-10T23:00:00.000Z",
+        "to": "2023-11-11T23:00:00.000Z",
+        "details": "Vom 11. November bis zum 12. Novmeber 2023 findet der Deutschland-Cup im Rhönradturnen statt.",
+        "docs": {}
+    },
+    {
+        "place": "N.N.",
+        "category": "Gerätturnen",
+        "title": "Bayernpokal Regionalentscheide 2023",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231111-bayernpokal-regionalentscheid",
+        "from": "2023-11-10T23:00:00.000Z",
+        "to": "2023-11-11T23:00:00.000Z",
+        "details": "Die Bayernpokal Regionalentscheide finden am 11./12.11.2022 statt.\n\nMeldeschluss: 23.10.2023 23:59 Uhr im DTB-GymNet\n\nWeitere Informationen folgen noch.",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Rhönradturnen",
+        "title": "Deutsche Vereins-Mannschafts-Meisterschaft",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/dvmm",
+        "from": "2023-11-10T23:00:00.000Z",
+        "details": "Am 11. November 2023 findet die Deutsche Vereins-Mannschafts-Meisterschaft im Rhönradturnen statt.",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "Rhönradturnen",
+        "title": "Deutschland-Cup",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/d-cup",
+        "from": "2023-11-10T23:00:00.000Z",
+        "to": "2023-11-11T23:00:00.000Z",
+        "details": "Vom 11. November bis zum 12. Novmeber 2023 findet der Deutschland-Cup im Rhönradturnen statt.",
+        "docs": {}
+    },
+    {
+        "place": "Kempten",
+        "category": "",
+        "title": "Regionalentscheid \"Turnen im Verein\" in Kempten",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231112_regionalentscheid-turnen-im-verein_kempten",
+        "from": "2023-11-11T23:00:00.000Z",
+        "details": "",
+        "docs": {}
+    },
+    {
+        "place": "Alzenau",
+        "category": "",
+        "title": "Trainerassistenten Ausbildung  - Teil 2",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/tg-msp-20231118-trainerassistent-teil-2",
+        "from": "2023-11-17T23:00:00.000Z",
+        "to": "2023-11-18T23:00:00.000Z",
+        "details": "Lg-Nr.: 23 750 403 1010\n\nvoraussichtlich in Alzenau",
+        "docs": {}
+    },
+    {
+        "place": "N.N.",
+        "category": "Gerätturnen",
+        "title": "Bayernpokal Landesentscheid 2023",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231125-bayernpokal-landesentscheid",
+        "from": "2023-11-24T23:00:00.000Z",
+        "to": "2023-11-25T23:00:00.000Z",
+        "details": "Der Bayernpokal Landesentscheid findet am 25./26.11.2023 statt.\n\nMeldeschluss: 13.11.2023 23:59 Uhr im DTB-GymNet",
+        "docs": {}
+    },
+    {
+        "place": "",
+        "category": "TeamGym",
+        "title": "Landeskadertest TeamGym 2023",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/landeskadertest",
+        "from": "2023-12-01T23:00:00.000Z",
+        "details": "Am 02. Dezember 2023 findet der Kadertest des Landeskaders Bayern TeamGym für 2024 statt. \n\nAusschreibung \n\nWegbeschreibung \n\nAnmeldung",
+        "docs": {}
+    },
+    {
+        "place": "Harburg",
+        "category": "",
+        "title": "Paarturnen",
+        "img": "",
+        "link": "https://oberfranken.btv-turnen.de/events/20231202-Paarturnen",
+        "from": "2023-12-01T23:00:00.000Z",
+        "details": "Die Ausschreibung und alle weiteren Informationen werden zu gegebener Zeit veröffentlicht!\n\n \n\nOrt: Harburg",
+        "docs": {}
+    }
+];
   // overview (requires turn-contact-form-in-popup.hack)
-
   const dataOverview = `
   Wir wünschen fröhliche Weihnachten und einen guten Rutsch	01.01.2023	David Renner	david.renner@btv-turnen.de	Hartmut Jahn	hartmut.jahn@btv-turnen.de	48	9983
 `
@@ -68,6 +1428,12 @@
   ${
     true
       ? `<div style="flex:1 0 26%; min-width:200px; border: 1px solid #1d71b9; margin: 0.5rem; padding: 0.5rem;">Vereine / Mitglieder der Vereine <br /><span style="font-size: 2rem">${_.clubs.count} / ${_.clubs.members}</span></div>`
+      : ``
+  }
+  ${['', '', ''].map(_ =>`<div style="flex:1 0 26%; min-width:200px; margin: 0 0.5rem; padding: 0 0.5rem;"></div>`).join('')}
+  ${
+    true
+      ? `<div style="flex:1 0 26%; min-width:200px; border: 1px solid #1d71b9; margin: 0.5rem; padding: 0.5rem;">Aktive Ausschreibung <ul style="all: unset; list-style: none">${dataNews.filter(_ => (_.to && new Date() < _.to) || new Date() < _.from).filter(_ => _.docs?.['Ausschreibung']).map(_ => `<li><a href="">${_.title}</a></li>`).join('')}</ul></div>`
       : ``
   }
   `
