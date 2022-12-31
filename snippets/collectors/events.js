@@ -1,4 +1,8 @@
 // COLLECTOR (required for): news-gallery
+const demo = typeof debug !== 'undefined';
+const demoList = typeof test !== 'undefined' ? test : '';
+const demoItem = typeof testItem !== 'undefined' ? testItem : '';
+const demoRegio = typeof regio !== 'undefined' ? regio : '';
 const months = JSON.parse(
   `{"Jan": 0,"Feb": 1,"Mär": 2,"Apr": 3,"Mai": 4,"Jun": 5,"Jul": 6,"Aug": 7,"Sep": 8,"Okt": 9,"Nov": 10,"Dez": 11 }`
 );
@@ -14,12 +18,12 @@ const dataNewsCBs = [];
 const addNewsCB = (cb) => dataNewsCBs.push(cb);
 const setNews = (cb) => {
   dataNews = cb(dataNews);
-  dataNewsCBs.forEach((_) => _(dataNews));
+  dataNewsCBs.forEach((_) => _(dataNews, dataNewsLoading));
 };
 
-const loadNewsItem = (link, test) =>
-  (!!test
-    ? Promise.resolve(testItem).then(
+const loadNewsItem = (link) =>
+  (!!demo
+    ? Promise.resolve(demoItem).then(
         (_) => new Promise((resolve) => setTimeout(() => resolve(_), 500))
       )
     : fetch(`${link}`).then((_) => _.text())
@@ -54,13 +58,13 @@ const loadNewsItem = (link, test) =>
     };
   });
 
-const loadNewsList = (page, test) =>
-  (!!test
-    ? Promise.resolve(test).then(
+const loadNewsList = (page) =>
+  (!!demo
+    ? Promise.resolve(demoList).then(
         (_) => new Promise((resolve) => setTimeout(() => resolve(_), 500))
       )
     : fetch(
-        `${window.location.origin}/events?page=${page}&regio=${regio}`
+        `${window.location.origin}/events?page=${page}&regio=${demoRegio}`
       ).then((_) => _.text())
   ).then((_) => {
     const temp = document.createElement('div');
@@ -79,11 +83,11 @@ const loadNewsList = (page, test) =>
       .filter((_) => !!_.title);
   });
 
-const loadNewsChunk = (page, test) =>
-  loadNewsList(page, test).then((next) => {
+const loadNewsChunk = (page) =>
+  loadNewsList(page).then((next) => {
     setNews((prev) => [...prev, ...next]);
-    return next.length && (!test || page < 5)
-      ? loadNewsChunk(page + 1, test).then((_) => [...next, ..._])
+    return next.length && (!demo || page < 5)
+      ? loadNewsChunk(page + 1).then((_) => [...next, ..._])
       : next;
   });
 
@@ -91,11 +95,11 @@ Promise.resolve()
   .then(() => {
     dataNewsLoading = true;
   })
-  .then(() => loadNewsChunk(1, test))
+  .then(() => loadNewsChunk(1))
   .then(() =>
     Promise.all(
       dataNews.map((_) =>
-        loadNewsItem(_.link, test)
+        loadNewsItem(_.link)
           .then((item) => ({ ..._, ...item }))
           .then((_) => {
             setNews((prev) => {
@@ -117,7 +121,7 @@ Promise.resolve()
   .then(() => setNews((_) => _));
 
 addNewsCB((news) => {
-  if (debug) {
+  if (demo && document.querySelector('.debug')) {
     console.log(news);
     document.querySelector('.debug').value = JSON.stringify(news);
   }

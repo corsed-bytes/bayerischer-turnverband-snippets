@@ -1,289 +1,70 @@
-<div id="news">
-  <div
-    class="control"
-    style="display: flex; align-items: center; justify-content: space-between"
-  ></div>
-  <div
-    class="content"
-    style="display: flex; flex-direction: column; padding: 0"
-  >
-    Lade Inhalt...
+<div
+  style="
+    display: flex;
+    border-bottom: 1px solid black;
+    margin: 0.5rem;
+    padding: 0.5rem;
+  "
+>
+  <div>
+    <span>Collector-Code</span><br />
+    <textarea class="collector"></textarea>
+  </div>
+  <div>
+    <span>View-HTML</span><br />
+    <textarea class="view"></textarea>
+  </div>
+  <div>
+    <span>View-Code</span><br />
+    <textarea class="controller"></textarea>
   </div>
 </div>
 
+<div id="view">
+  <div id="news">
+    <div
+      class="control"
+      style="display: flex; align-items: center; justify-content: space-between"
+    ></div>
+    <div
+      class="content"
+      style="display: flex; flex-direction: column; padding: 0"
+    >
+      Lade Inhalt...
+    </div>
+  </div>
+</div>
+
+<script src="./collectors/demo.js"></script>
+<script src="./collectors/events.js" id="collector"></script>
+<script src="./view/news.js" id="controller"></script>
+
 <script>
-  const test = `<select name="regio"><option value="" selected="">alle Regionen</option><option value="82">Allgäu</option><option value="1402">Amper-Würm</option><option value="1341">Ansbach</option><option value="87">Augsburg</option><option value="1311">Bayreuth-Kulmbach</option><option value="1273">Coburg-Frankenwald</option><option value="1403">Donau-Ilm</option><option value="1270">Donau-Wald</option><option value="1312">Fichtelgebirge-Nordoberfranken</option><option value="84">Iller-Donau</option><option value="1405">Inn-Chiem-Rupertigau</option><option value="1268">Landshut</option><option value="1313">Main-Spessart</option><option value="63">Mittelfranken</option><option value="1342">Mittelfranken Süd</option><option value="1404">München</option><option value="28">Niederbayern</option><option value="1343">Nürnberg, Fürth, Erlangen, </option><option value="61">Oberbayern</option><option value="83">Oberdonau</option><option value="62">Oberfranken</option><option value="1406">Oberland</option><option value="65">Oberpfalz</option><option value="1317">Oberpfalz-Nord</option><option value="1318">Oberpfalz-Süd</option><option value="1314">Rhön-Saale</option><option value="66">Schwaben</option><option value="1315">Schweinfurt-Haßberge</option><option value="1274">Südoberfranken</option><option value="1269">Unterdonau</option><option value="64">Unterfranken</option><option value="1407">Wendelstein</option><option value="1316">Würzburg</option></select><article class="brick_event list cell"> <div class="grid-x grid-margin-x"> <div class="cell"> <a class="item" href="/events/2085005-tu-cup"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>28</h2> <div class="day">Jan</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0">Rope Skipping</div><h2 class="h4"> Bayerischer Triple Under Cup </h2> <div class="place"></div></div></div></a> </div><div class="cell"> <a class="item" href="/events/2085001-bem"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>28</h2> <div class="day">Jan</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0">Rope Skipping</div><h2 class="h4"> Bayerische Einzelmeisterschaft </h2> <div class="place"></div></div></div></a> </div><div class="cell"> <a class="item" href="/events/2085004-du-cup"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>28</h2> <div class="day">Jan</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0">Rope Skipping</div><h2 class="h4"> Bayerischer Double Under Cup </h2> <div class="place"></div></div></div></a> </div><div class="cell"> <a class="item" href="/events/20230204-Karilehrgang"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>04</h2> <div class="day">Feb</div></div><div class="to date"> <div class="dayname">So</div><h2>05</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0"></div><h2 class="h4"> Kampfrichterlehrgang GT WBL P-Übungen inkl. Prüfung D-Lizenz </h2> <div class="place">Gundelfingen</div></div></div></a> </div><div class="cell"> <a class="item" href="/events/20230211-Turn10-Lehrgang"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>11</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0"></div><h2 class="h4"> Turn10-Lehrgang </h2> <div class="place">Wallerstein</div></div></div></a> </div><div class="cell"> <a class="item" href="/events/bm-dmt"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">So</div><h2>12</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0">Trampolinturnen</div><h2 class="h4"> Bayerische Meisterschaften Doppelmini-Trampolinturnen </h2> <div class="place"></div></div></div></a> </div><div class="cell"> <a class="item" href="/events/lanhanteltraining lehrgang tg ansbach"> <div class="grid-x grid-margin-x"> <div class="cell small-4 large-2"> <div class="icon"> <picture><source srcset="/regionen/mittelfranken/image-thumb__3366__events_icon/langhanteltraining_Bild%201.jpg 1x, /regionen/mittelfranken/image-thumb__3366__events_icon/langhanteltraining_Bild%201@2x.jpg 2x" type="image/jpeg"><img src="/regionen/mittelfranken/image-thumb__3366__events_icon/langhanteltraining_Bild%201.jpg" width="80" height="80" alt="" loading="lazy"></picture> </div></div><div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>18</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0"></div><h2 class="h4"> Lehrgang - Langhanteltraining im Vereinssport </h2> <div class="place">Heilsbronn</div></div></div></a> </div><div class="cell"> <a class="item" href="/events/20230218_kari-lehrgang-weiblich_kempten"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>18</h2> <div class="day">Feb</div></div><div class="to date"> <div class="dayname">So</div><h2>19</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0"></div><h2 class="h4"> KaRi-Lehrgang Gerätturnen weiblich in Kempten </h2> <div class="place">Kempten</div></div></div></a> </div><div class="cell"> <a class="item" href="/events/20230225-Kinderturnlehrgang"> <div class="grid-x grid-margin-x"> <div class="cell small-8 large-3"> <div class="dates"> <div class="from date"> <div class="dayname">Sa</div><h2>25</h2> <div class="day">Feb</div></div></div></div><div class="cell large-7"> <div class="category mtm5 mtd0"></div><h2 class="h4"> Kinderturnlehrgang P1-P5 </h2> <div class="place">Bäumenheim</div></div></div></a> </div></div><div class="grid-x grid-margin-x mtm4 mtd4"> <div class="cell"> <div class="paging"> <span class="curnumber"> Seiten 4/13 </span> <a class="first" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=1">&lt;</a> <a class="previous" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=3">Zurück</a> <span class="pages"> <a class="page" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=2"> 2 </a> <a class="page" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=3"> 3 </a> <a class="current" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=4"> 4 </a> <a class="page" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=5"> 5 </a> <a class="page" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=6"> 6 </a> </span> <a class="next" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=5">Weiter</a> <a class="last" href="/events?archive=1&amp;sport=&amp;regio=&amp;page=15">&gt;</a></div></div></div></article>`;
-  const testItem = `<article class="brick_blog list cell"> <div class="grid-x grid-margin-x"> <div class="cell large-8 large-offset-2"> <h1> Ergebnisse: Bezirksmeisterschaften Rhythmische Sportgymnastik Schwaben </h1> <div class="h6"> 20.02.2023 - 20.03.2023 </div><div class="copy"> <p>Endlich wieder Wettkampf! Nach mehr als zwei Jahren Pause durften sich die besten Gymnastinnen Schwabens in ihren jeweiligen Leistungs- und Altersklassen messen. Außerdem standen die Qualifikationen für die Bayerischen Meisterschaften an, die ebenfalls in Gersthofen ausgetragen wurden.</p> \n<p><a data-tabindex-counter="1" data-tabindex-value="none" href="/regionen/schwaben/aktuelles/2022/2-2022-siegerliste-rsg-bezirksmeisterschaften.pdf" tabindex="-1" target="_blank">Siegerliste RSG Bezirksmeisterschaften Schwaben 2022</a></p></div><button onclick="history.back()" class="button secondary mtm2 mtd3">zurück</button> </div></div></article>`;
-  const regio = '1273';
-  // news-gallery
-  const months = JSON.parse(`{
-    "Jan": 0,
-    "Feb": 1,
-    "Mär": 2,
-    "Apr": 3,
-    "Mai": 4,
-    "Jun": 5,
-    "Jul": 6,
-    "Aug": 7,
-    "Sep": 8,
-    "Okt": 9,
-    "Nov": 10,
-    "Dez": 11
-  }`);
-  const revMonths = Object.entries(months).reduce((st, [k, v]) => {
-    st[v] = k;
-    return st;
-  }, {});
-  const days = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
-  let dataNews = [];
-
-  const loadNewsItem = (link, test) =>
-    (!!test
-      ? Promise.resolve(testItem).then(
-          (_) => new Promise((resolve) => setTimeout(() => resolve(_), 500))
-        )
-      : fetch(`${link}`).then((_) => _.text())
-    ).then((_) => {
-      const temp = document.createElement('div');
-      temp.innerHTML = _.split(
-        '<article class="brick_blog list cell">'
-      )[1].split('</article>')[0];
-      const [from, to] = temp
-        .querySelector('div.h6')
-        .innerText.split(',')[0]
-        .split('-')
-        .map((_) => _.trim().split('.').reverse());
-      return {
-        from: new Date(from),
-        to: !to ? undefined : new Date(to),
-        details: temp.querySelector('div.copy').innerText.trim(),
-        docs: {
-          Ausschreibung: Array.from(temp.querySelectorAll('a'))
-            .filter((el) => el.textContent.includes('Ausschreibung'))
-            .map((_) => _.href)[0],
-          Anmeldung: Array.from(temp.querySelectorAll('a'))
-            .filter((el) => el.textContent.includes('Anmeldung'))
-            .map((_) => _.href)[0],
-          Wegbeschreibung: Array.from(temp.querySelectorAll('a'))
-            .filter((el) => el.textContent.includes('Wegbeschreibung'))
-            .map((_) => _.href)[0],
-          Siegerliste: Array.from(temp.querySelectorAll('a'))
-            .filter((el) => el.textContent.includes('Siegerliste'))
-            .map((_) => _.href)[0],
-        },
-      };
-    });
-
-  const loadNewsList = (page, test) =>
-    (!!test
-      ? Promise.resolve(test).then(
-          (_) => new Promise((resolve) => setTimeout(() => resolve(_), 500))
-        )
-      : fetch(
-          `${window.location.origin}/events?page=${page}&regio=${regio}`
-        ).then((_) => _.text())
-    ).then((_) => {
-      const temp = document.createElement('div');
-      temp.innerHTML = _.split(
-        '<article class="brick_event list cell">'
-      )[1].split('</article>')[0];
-      return [...temp.querySelectorAll('[class="cell"]')]
-        .map((_) => ({
-          place: (_.querySelector('div.place') || { innerText: '' }).innerText,
-          category: (_.querySelector('div.category') || { innerText: '' })
-            .innerText,
-          title: (
-            _.querySelector('h2.h4') || { innerText: '' }
-          ).innerText.trim(),
-          img: (_.querySelector('img') || { src: '' }).src.trim(),
-          link: (_.querySelector('a') || { href: '' }).href.trim(),
-        }))
-        .filter((_) => !!_.title);
-    });
-
-  const loadNewsChunk = (page, test) =>
-    loadNewsList(page, test)
-      .then((_) => {
-        dataNews = [...dataNews, ..._];
-        formatterNews(dataNews, true);
-        return _;
-      })
-      .then((next) =>
-        next.length && (!test || page < 5)
-          ? loadNewsChunk(page + 1, test).then((_) => [...next, ..._])
-          : next
-      );
-
-  loadNewsChunk(1, test)
-    .then(() =>
-      Promise.all(
-        dataNews.map((_) =>
-          loadNewsItem(_.link, test)
-            .then((item) => ({ ..._, ...item }))
-            .then((_) => {
-              dataNews.splice(
-                dataNews.findIndex((__) => __.title === _.title),
-                1,
-                _
-              );
-              formatterNews(dataNews, true);
-              return _;
-            })
-        )
-      )
-    )
-    .then(() =>
-      formatterNews(
-        dataNews.filter(
-          (_) => (_.to && new Date() < _.to) || new Date() < _.from
-        )
-      )
+  const exports = {};
+</script>
+<script src="https://unpkg.com/jsmin@1.0.1/jsmin.js"></script>
+<script>
+  document.querySelector('.view').innerText = `
+${document.querySelector('#view').innerHTML.replace(/\n[ ]*/g, '')}`;
+</script>
+<script>
+  fetch(document.querySelector('#collector').src)
+    .then((_) => _.text())
+    .then(
+      (_) =>
+        (document.querySelector('.collector').value = `<script>${exports
+          .jsmin(_)
+          .trim()}</s${'' /*for stackblitz*/}cript>`)
     );
-
-  const convertDate = (date) => {
-    var event = new Date(date).toISOString();
-    event = event.split('T')[0];
-    event = event.split('-');
-    event = event.join('');
-    return event;
-  };
-  const download = (from, to, title, details, place) => {
-    var test = `BEGIN:VCALENDAR
-CALSCALE:GREGORIAN
-METHOD:PUBLISH
-PRODID:-//Test Cal//EN
-VERSION:2.0
-BEGIN:VEVENT
-UID:test-1
-DTSTAMP;VALUE=DATE:${convertDate(Date.now())}
-DTSTART;VALUE=DATE:${convertDate(from)}
-DTEND;VALUE=DATE:${convertDate(to)}
-SUMMARY:${title}
-DESCRIPTION:${details}
-LOCATION:${place}
-END:VEVENT
-END:VCALENDAR`;
-
-    var data = new File([test], { type: 'text/plain' });
-
-    const temp = document.createElement('a');
-    temp.download = title.replaceAll(' ', '_') + '.ics';
-    temp.href = window.URL.createObjectURL(data);
-    temp.click();
-  };
-
-  const formatterNews = (dataNews, loading) => {
-    document.querySelector('#news div.content').innerHTML = !!loading
-      ? 'Lade weitere Nachrichten (' +
-        dataNews.filter((_) => _.from).length +
-        ' von ' +
-        dataNews.length +
-        ')'
-      : dataNews
-          .map(
-            (_) =>
-              `<div style="display: flex; flex-wrap: wrap; background: transparent; border-width: 0; border-bottom: 1px solid lightgray; align-items: stretch; color: black; justify-content: space-between">
-            <div style="flex: 0 115px; display: flex; align-items: stretch; margin:0.5rem; ">
-              <div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: space-around">
-                <span>
-                  ${days[_.from.getDay()]}
-                </span>
-                <span style="font-size: 2.5rem; font-weight: bold;">
-                  ${('00' + _.from.getDate()).slice(-2)} 
-                </span>
-                <span>
-                  ${revMonths[_.from.getMonth()]} 
-                </span>
-              </div>
-            ${
-              !!_.to
-                ? `
-                <span style="font-size: 2rem; font-weight: bold; padding: 0.5rem; align-self: center">-</span>
-                <div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: space-around">
-                  <span>
-                    ${days[_.to.getDay()]}
-                  </span>
-                  <span style="font-size: 2.5rem; font-weight: bold;">
-                    ${('00' + _.to.getDate()).slice(-2)} 
-                  </span>
-                  <span>
-                    ${revMonths[_.to.getMonth()]} 
-                  </span>
-                </div>`
-                : ''
-            }
-            </div>
-            ${
-              _.img
-                ? `<img style="flex: 0 100px; height: 100px;margin:0.5rem; " src="${_.img}" />`
-                : `<div style="flex: 0 100px; height: 0px;margin:0 0.5rem; "></div>`
-            }
-            <div style="display: flex; flex-direction: column; flex:1 0 250px;margin:0.5rem; ">
-                <div style="display: flex;">
-                    ${_.place ? _.place : 'Kein Ort'} ${
-                _.category ? ' | ' + _.category : ''
-              } 
-                </div>
-                <a href="${
-                  _.link
-                }"><h2 style="margin: 0; font-size: 1.6rem; text-align: left;">${
-                _.title
-              }</h2></a>
-              <div style="flex: 1"></div>
-                <div style="display: flex; flex-wrap: wrap; margin-top: 0.5rem;">
-                    ${Object.entries(_.docs)
-                      .filter((_) => _[1])
-                      .map(
-                        ([name, link]) =>
-                          `<a style="flex: 0 1; margin-right: 0.2rem" href="${link}">${name}</a>`
-                      )
-                      .join(' ')}
-                      <div style="flex:1"></div>
-                    <button onclick="javascript:download('${_.from}', '${
-                _.to || _.from
-              }', '${_.title}', '${_.details.replaceAll('\n', '')}', '${
-                _.place
-              }');">Download ICS</button>
-
-                </div>
-            </div>
-          </div>`
-          )
-          .join('') +
-        ['', '', '', '', '']
-          .map(
-            () =>
-              '<div style="flex: 1 0 11%; margin: 0; padding: 0; min-width: 300px"></div>'
-          )
-          .join('');
-  };
-
-  setTimeout(() => {
-    document.querySelector('#news div.control').innerHTML = `<span></span><input
-    placeholder="Suche"
-    type="text"
-    style="
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0.5rem;
-      border: none;
-      border-bottom: 3px solid #1d71b9;
-      outline: none;
-      width: auto;
-    "
-  />`;
-    document
-      .querySelector('#news div.control input')
-      .addEventListener('keydown', (e) =>
-        formatterNews(
-          dataNews
-            .filter((_) => (_.to && new Date() < _.to) || new Date() < _.from)
-            .filter((_) =>
-              JSON.stringify(_)
-                .toLowerCase()
-                .includes(e.target.value.toLowerCase())
-            )
-        )
-      );
-  }, 100);
+</script>
+<script>
+  fetch(document.querySelector('#controller').src)
+    .then((_) => _.text())
+    .then(
+      (_) =>
+        (document.querySelector('.controller').value = `<script>${_.replace(
+          /\n[ ]*/g,
+          ''
+        )}</s${'' /*for stackblitz*/}cript>`)
+    );
 </script>
