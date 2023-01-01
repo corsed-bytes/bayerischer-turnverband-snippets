@@ -1,27 +1,29 @@
-// COLLECTOR (required for): news-gallery
+// COLLECTOR (required for): Events-gallery
 const demo = typeof debug !== 'undefined';
 const demoList = typeof test !== 'undefined' ? test : '';
 const demoItem = typeof testItem !== 'undefined' ? testItem : '';
 const demoRegio = typeof regio !== 'undefined' ? regio : '';
-const months = JSON.parse(
-  `{"Jan": 0,"Feb": 1,"Mär": 2,"Apr": 3,"Mai": 4,"Jun": 5,"Jul": 6,"Aug": 7,"Sep": 8,"Okt": 9,"Nov": 10,"Dez": 11 }`
-);
-const revMonths = Object.entries(months).reduce((st, [k, v]) => {
+/*const revMonths = Object.entries(months).reduce((st, [k, v]) => {
   st[v] = k;
   return st;
-}, {});
-const days = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+}, {});*/
 
-let dataNews = [];
-let dataNewsLoading = false;
-const dataNewsCBs = [];
-const addNewsCB = (cb) => dataNewsCBs.push(cb);
-const setNews = (cb) => {
-  dataNews = cb(dataNews);
-  dataNewsCBs.forEach((_) => _(dataNews, dataNewsLoading));
+let events = {
+  data: [],
+  loading: false,
+  timestamp: new Date(),
+  cbs: [],
+};
+const addEventsCB = (cb) => {
+  events.cbs.push(cb);
+  cb(events);
+};
+const setEvents = (cb) => {
+  events = cb(events);
+  events.cbs.forEach((_) => _(events));
 };
 
-const loadNewsItem = (link) =>
+const loadEventsItem = (link) =>
   (!!demo
     ? Promise.resolve(demoItem).then(
         (_) => new Promise((resolve) => setTimeout(() => resolve(_), 500))
@@ -58,7 +60,7 @@ const loadNewsItem = (link) =>
     };
   });
 
-const loadNewsList = (page) =>
+const loadEventsList = (page) =>
   (!!demo
     ? Promise.resolve(demoList).then(
         (_) => new Promise((resolve) => setTimeout(() => resolve(_), 500))
@@ -83,46 +85,41 @@ const loadNewsList = (page) =>
       .filter((_) => !!_.title);
   });
 
-const loadNewsChunk = (page) =>
-  loadNewsList(page).then((next) => {
-    setNews((prev) => [...prev, ...next]);
+const loadEventsChunk = (page) =>
+  loadEventsList(page).then((next) => {
+    setEvents((_) => ({ ..._, data: [..._.data, ...next] }));
     return next.length && (!demo || page < 5)
-      ? loadNewsChunk(page + 1).then((_) => [...next, ..._])
+      ? loadEventsChunk(page + 1).then((_) => [...next, ..._])
       : next;
   });
 
 Promise.resolve()
-  .then(() => {
-    dataNewsLoading = true;
-  })
-  .then(() => loadNewsChunk(1))
+  .then(() =>
+    setEvents((_) => ({ ..._, data: [], loading: true, timestamp: new Date() }))
+  )
+  .then(() => loadEventsChunk(1))
   .then(() =>
     Promise.all(
-      dataNews.map((_) =>
-        loadNewsItem(_.link)
-          .then((item) => ({ ..._, ...item }))
-          .then((_) => {
-            setNews((prev) => {
-              prev.splice(
-                prev.findIndex((__) => __.title === _.title),
+      events.data.map((_) =>
+        loadEventsItem(_.link)
+          .then((next) =>
+            setEvents((prev) => {
+              prev.data.splice(
+                prev.data.findIndex((__) => __.title === _.title),
                 1,
-                _
+                { ..._, ...next }
               );
               return prev;
-            });
-            return _;
-          })
+            })
+          )
       )
     )
   )
-  .then(() => {
-    dataNewsLoading = false;
-  })
-  .then(() => setNews((_) => _));
+  .then(() => setEvents((_) => ({ ..._, loading: false })));
 
-addNewsCB((news) => {
+addEventsCB((Events) => {
   if (demo && document.querySelector('.debug')) {
-    console.log(news);
-    document.querySelector('.debug').value = JSON.stringify(news);
+    console.log(Events);
+    document.querySelector('.debug').value = JSON.stringify(Events);
   }
 });

@@ -6,6 +6,10 @@
     padding: 0.5rem;
   "
 >
+<div>
+  <span>Collector-Config</span><br />
+  <textarea class="config"></textarea>
+</div>  
   <div>
     <span>Collector-Code</span><br />
     <textarea class="collector"></textarea>
@@ -35,9 +39,10 @@
   </div>
 </div>
 
-<script src="./collectors/demo.js"></script>
+<script src="./collectors/eventsConfig.js" id="config"></script>
+<script src="./collectors/eventsDataFake.js"></script>
 <script src="./collectors/events.js" id="collector"></script>
-<script src="./view/news.js" id="controller"></script>
+<script src="./views/news.js" id="controller"></script>
 
 <script>
   const exports = {};
@@ -48,6 +53,14 @@
 ${document.querySelector('#view').innerHTML.replace(/\n[ ]*/g, '')}`;
 </script>
 <script>
+  fetch(document.querySelector('#config').src)
+    .then((_) => _.text())
+    .then(
+      (_) =>
+        (document.querySelector('.config').value = `<script>${exports
+          .jsmin(_)
+          .trim()}</s${'' /*for stackblitz*/}cript>`)
+    );
   fetch(document.querySelector('#collector').src)
     .then((_) => _.text())
     .then(
@@ -56,8 +69,6 @@ ${document.querySelector('#view').innerHTML.replace(/\n[ ]*/g, '')}`;
           .jsmin(_)
           .trim()}</s${'' /*for stackblitz*/}cript>`)
     );
-</script>
-<script>
   fetch(document.querySelector('#controller').src)
     .then((_) => _.text())
     .then(

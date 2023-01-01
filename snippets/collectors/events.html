@@ -1,16 +1,20 @@
 <textarea class="debug"></textarea>
 
-<script src="demo.js"></script>
+<script src="eventsDataFake.js"></script>
 <script id="code" src="events.js"></script>
 
 <p>Script Tag</p>
 <textarea class="transfer"></textarea>
-<script>const exports = {};</script>
+<script>
+  const exports = {};
+</script>
 <script src="https://unpkg.com/jsmin@1.0.1/jsmin.js"></script>
 <script>
   fetch(document.querySelector('#code').src)
     .then((_) => _.text())
-    .then((_) => {document.querySelector('.transfer').innerText = `<script>
+    .then((_) => {
+      document.querySelector('.transfer').innerText = `<script>
 ${exports.jsmin(_).trim()}
-</s${''/*needed for stackblitz to deal with script inside script*/}cript>`});
+</s${'' /*needed for stackblitz to deal with script inside script*/}cript>`;
+    });
 </script>

@@ -1,13 +1,15 @@
+let newsView = { search: '', data: [], loading: false, timestamp: new Date() };
+
 const convertDate = (date) =>
-new Date(date).toISOString().split('T')[0].split('-').join('');
+  new Date(date).toISOString().split('T')[0].split('-').join('');
 
 const download = (from, to, title, details, place) => {
-const temp = document.createElement('a');
-temp.download = title.replaceAll(' ', '_') + '.ics';
-temp.href = window.URL.createObjectURL(
-  new File(
-    [
-      `BEGIN:VCALENDAR
+  const temp = document.createElement('a');
+  temp.download = title.replaceAll(' ', '_') + '.ics';
+  temp.href = window.URL.createObjectURL(
+    new File(
+      [
+        `BEGIN:VCALENDAR
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 PRODID:-//Test Cal//EN
@@ -22,42 +24,39 @@ DESCRIPTION:${details}
 LOCATION:${place}
 END:VEVENT
 END:VCALENDAR`,
-    ],
-    { type: 'text/plain' }
-  )
-);
-temp.click();
+      ],
+      { type: 'text/plain' }
+    )
+  );
+  temp.click();
 };
 
-let newsSearch = '';
-let newsData = [];
-let newsLoading = false;
 const formatterNews = () => {
-const news = newsData,
-  loading = newsLoading,
-  search = newsSearch;
-const formatterDate = (
-  date
-) => `<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: space-around">
-    <span>${days[date.getDay()]}</span>
+  const news = newsView.data,
+    loading = newsView.loading,
+    search = newsView.search;
+  const formatterDate = (
+    date
+  ) => `<div style="display: flex; flex-direction: column; align-items: flex-start; justify-content: space-around">
+    <span>${eventsDays[date.getDay()]}</span>
     <span style="font-size: 2.5rem; font-weight: bold;">${(
       '00' + date.getDate()
     ).slice(-2)}</span>
     <span>${revMonths[date.getMonth()]}</span>
   </div>`;
 
-document.querySelector('#news div.content').innerHTML = !!loading
-  ? `Lade weitere Nachrichten (${news.filter((_) => _.from).length} von ${
-      news.length
-    })`
-  : news
-      .filter((_) => new Date() < (_.to ? _.to : _.from))
-      .filter(
-        (_) => !search || JSON.stringify(_).toLowerCase().includes(search)
-      )
-      .map(
-        (_) =>
-          `<div style="display: flex; flex-wrap: wrap; background: transparent; border-width: 0; border-bottom: 1px solid lightgray; align-items: stretch; color: black; justify-content: space-between">
+  document.querySelector('#news div.content').innerHTML = !!loading
+    ? `Lade weitere Nachrichten (${news.filter((_) => _.from).length} von ${
+        news.length
+      })`
+    : news
+        .filter((_) => new Date() < (_.to ? _.to : _.from))
+        .filter(
+          (_) => !search || JSON.stringify(_).toLowerCase().includes(search)
+        )
+        .map(
+          (_) =>
+            `<div style="display: flex; flex-wrap: wrap; background: transparent; border-width: 0; border-bottom: 1px solid lightgray; align-items: stretch; color: black; justify-content: space-between">
           <div style="flex: 0 115px; display: flex; align-items: stretch; margin:0.5rem; ">
             ${formatterDate(_.from)}
             ${
@@ -101,8 +100,8 @@ document.querySelector('#news div.content').innerHTML = !!loading
             </div>
           </div>
         </div>`
-      )
-      .join('') +
+        )
+        .join('') +
       ['', '', '', '', '']
         .map(
           () =>
@@ -111,22 +110,21 @@ document.querySelector('#news div.content').innerHTML = !!loading
         .join('');
 };
 
-addNewsCB((news, loading) => {
-newsData = news;
-newsLoading = loading;
-formatterNews();
+addEventsCB((events) => {
+  newsView = events;
+  formatterNews();
 });
 
 setTimeout(() => {
-document.querySelector('#news div.control').innerHTML = `<span></span><input
+  document.querySelector('#news div.control').innerHTML = `<span></span><input
     placeholder="Suche"
     type="text"
     style="display: flex;flex-wrap: wrap;padding: 0.5rem;border: none;border-bottom: 3px solid #1d71b9;outline: none;width: auto;"
   />`;
-document
-  .querySelector('#news div.control input')
-  .addEventListener('keydown', (e) => {
-    newsSearch = e.target.value.toLowerCase();
-    formatterNews();
-  });
+  document
+    .querySelector('#news div.control input')
+    .addEventListener('keyup', (e) => {
+      newsView.search = e.target.value.toLowerCase();
+      formatterNews();
+    });
 }, 100);
